@@ -213,6 +213,9 @@
 ///   objc-category-implementation-prologue:
 ///     @implementation identifier ( identifier )
 
+///   compatibility-alias-decl:
+///     @compatibility_alias alias-name  class-name ';'
+
 ///   property-synthesis:
 ///     @synthesize property-ivar-list ';'
 ///
