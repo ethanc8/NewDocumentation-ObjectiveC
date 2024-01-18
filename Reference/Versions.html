@@ -1,0 +1,700 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Manual" href="../Manual/index.html" /><link rel="prev" title="Getting Environment Information" href="EnvInformation.html" />
+
+    <!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
+        <title>Language Versions - Objective-C 2.4 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Objective-C 2.4 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">Objective-C 2.4 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Objective-C Language Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Objective-C Language Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Attributes.html">Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicTypes.html">Basic Types</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="NS_ENUM/index.html"><code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> macros</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of NS_ENUM macros</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="NS_ENUM/NS_CLOSED_ENUM.html"><code class="docutils literal notranslate"><span class="pre">NS_CLOSED_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_CLOSED_ENUM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="NS_ENUM/NS_ENUM.html"><code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_ENUM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="NS_ENUM/NS_ERROR_ENUM.html"><code class="docutils literal notranslate"><span class="pre">NS_ERROR_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_ERROR_ENUM</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Classes.html">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LightweightGenerics.html">Lightweight Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exceptions.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FastEnumeration.html">Fast enumeration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StringLiterals.html">String literals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DynamicLiterals.html">Dynamic literals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TraditionalMessageForwarding.html">Traditional Message Forwarding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Modules.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EnvInformation.html">Getting Environment Information</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Language Versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Manual/index.html">Manual</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Manual</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Manual/Introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Manual/Objects.html">2.2 Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Manual/Classes.html">Classes</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="language-versions">
+<h1>Language Versions<a class="headerlink" href="#language-versions" title="Permalink to this heading">#</a></h1>
+<blockquote>
+<div><p><strong>Note</strong>: Versions before Stepstone 4.0 are missing.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Note</strong>: In order to solve the confusing versioning scheme of Objective-C, this document uses its own versioning scheme which is similar to the current, extremely vague scheme.</p>
+</div></blockquote>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="http://www.cilinder.be/docs/next/NeXTStep/3.3/nd/ReleaseNotes/Compiler.htmld/index.html">Compiler release notes for NeXT Releases 3.0 to 3.3</a></p>
+<p><a class="reference external" href="https://opensource.apple.com/source/cctools/cctools-845/RelNotes/CompilerTools.html">Assembler, linker, etc release notes for Rhapsody 5.0 to Xcode 3.2.1</a></p>
+<p><a class="reference external" href="https://developer.apple.com/library/archive/releasenotes/Cocoa/RN-ObjectiveC/index.html">Objective-C Release Notes (Mac OS X Leopard)</a></p>
+<p><a class="reference external" href="https://dl.acm.org/doi/pdf/10.1145/3386332#page=53"><em>spec.language</em>, a Stepstone-internal document detailing planned user-visible changes to Stepstone Objective-C 4.0</a></p>
+<p><a class="reference external" href="https://developer.apple.com/library/archive/releasenotes/ObjectiveC/ObjCAvailabilityIndex/index.html">Objective-C Feature Availability Index</a></p>
+<p><a class="reference external" href="https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/WhatsNewXcode/Chapters/xcode_4_0.html#//apple_ref/doc/uid/TP40016147-SW1">What’s new in Xcode 4</a></p>
+<p>=(v0.8)</p>
+</section>
+<section id="v0-8-lowest-common-denominator">
+<h2>v0.8 - Lowest Common Denominator<a class="headerlink" href="#v0-8-lowest-common-denominator" title="Permalink to this heading">#</a></h2>
+<section id="availability">
+<h3>Availability<a class="headerlink" href="#availability" title="Permalink to this heading">#</a></h3>
+<section id="compilers">
+<h4>Compilers<a class="headerlink" href="#compilers" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Stepstone &gt;= 4.0</p></li>
+<li><p>Portable Object Compiler</p></li>
+<li><p>NeXT GCC fork</p></li>
+<li><p>GCC since around 1992</p></li>
+<li><p>Clang</p></li>
+</ul>
+</section>
+<section id="runtimes">
+<h4>Runtimes<a class="headerlink" href="#runtimes" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Stepstone &gt;= 4.0</p></li>
+<li><p>Portable Object Compiler</p></li>
+<li><p>NeXT/Apple with 32-bit ABI</p></li>
+<li><p>Apple with modern ABI</p></li>
+<li><p>GCC runtime</p></li>
+<li><p>GNUstep runtime</p></li>
+</ul>
+</section>
+</section>
+<section id="available-features">
+<h3>Available features<a class="headerlink" href="#available-features" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#import</span></code> preprocessor directive</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;interface</span></code>…<code class="docutils literal notranslate"><span class="pre">&#64;end</span></code> class declarations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;implementation</span></code>…<code class="docutils literal notranslate"><span class="pre">&#64;end</span></code> class definitions</p></li>
+</ul>
+<p>=(v0.9)</p>
+</section>
+</section>
+<section id="v0-9-categories">
+<h2>v0.9 - Categories<a class="headerlink" href="#v0-9-categories" title="Permalink to this heading">#</a></h2>
+<section id="id1">
+<h3>Availability<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<section id="id2">
+<h4>Compilers<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>NeXT GCC fork (was available sometime before 3.0)</p></li>
+<li><p>GCC (all versions with documentation on the GCC website)</p></li>
+<li><p>Clang</p></li>
+<li><p>Portable Object Compiler</p></li>
+</ul>
+</section>
+<section id="id3">
+<h4>Runtimes<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>NeXT/Apple with 32-bit ABI</p></li>
+<li><p>Apple with modern ABI</p></li>
+<li><p>GCC runtime</p></li>
+<li><p>GNUstep runtime</p></li>
+<li><p>Portable Object Compiler</p></li>
+</ul>
+</section>
+</section>
+<section id="new-features-since-v0-8">
+<h3>New features since v0.8<a class="headerlink" href="#new-features-since-v0-8" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Major feature: Categories</strong></p></li>
+</ul>
+<p>=(v0.10)</p>
+</section>
+</section>
+<section id="v0-10-next-release-3-0">
+<h2>v0.10 - NeXT Release 3.0<a class="headerlink" href="#v0-10-next-release-3-0" title="Permalink to this heading">#</a></h2>
+<p>This release introduces some C99 features.</p>
+<section id="id4">
+<h3>Availability<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<section id="id5">
+<h4>Compilers<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>NeXT GCC fork &gt;= 3.0 (based on GCC 1.93)</p></li>
+<li><p>GCC &gt;= 2.0</p></li>
+<li><p>Clang</p></li>
+</ul>
+</section>
+<section id="id6">
+<h4>Runtimes<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>NeXT/Apple with 32-bit ABI</p></li>
+<li><p>Apple with modern ABI</p></li>
+<li><p>GCC runtime</p></li>
+<li><p>GNUstep runtime</p></li>
+</ul>
+</section>
+</section>
+<section id="major-new-features">
+<h3>Major new features<a class="headerlink" href="#major-new-features" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Protocols</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;protocol</span></code>…<code class="docutils literal notranslate"><span class="pre">&#64;end</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>…<code class="docutils literal notranslate"><span class="pre">&gt;</span></code> syntax for declaring classes</p></li>
+<li><p>New qualifiers for types that can only be used in protocol declarations: <code class="docutils literal notranslate"><span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">out</span></code>, <code class="docutils literal notranslate"><span class="pre">inout</span></code>, <code class="docutils literal notranslate"><span class="pre">bycopy</span></code>, <code class="docutils literal notranslate"><span class="pre">oneway</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Interface variable access control</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;public</span></code> variables are accessible by anyone</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;protected</span></code> variables are accessible by defining class and subclasses</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;private</span></code> variables are only accessible by the defining class</p></li>
+<li><p>default is <code class="docutils literal notranslate"><span class="pre">&#64;protected</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="changes-since-v0-9">
+<h3>Changes since v0.9<a class="headerlink" href="#changes-since-v0-9" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Forward declaration of classes (<code class="docutils literal notranslate"><span class="pre">&#64;class</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#warning</span></code> directive to complement <code class="docutils literal notranslate"><span class="pre">#error</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__attribute__</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">aligned</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">format</span></code></p></li>
+</ul>
+</li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">&#64;encode</span></code> encodings for <code class="docutils literal notranslate"><span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">out</span></code>, <code class="docutils literal notranslate"><span class="pre">inout</span></code>, <code class="docutils literal notranslate"><span class="pre">bycopy</span></code>, <code class="docutils literal notranslate"><span class="pre">oneway</span></code>, <code class="docutils literal notranslate"><span class="pre">const</span></code>.</p></li>
+</ul>
+<p>=(v1.0)</p>
+</section>
+</section>
+<section id="v1-0-exceptions-and-synchronization">
+<h2>v1.0 - Exceptions and synchronization<a class="headerlink" href="#v1-0-exceptions-and-synchronization" title="Permalink to this heading">#</a></h2>
+<section id="id7">
+<h3>Availability<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>GCC &gt;= 4.0 with <code class="docutils literal notranslate"><span class="pre">-fobjc-exceptions</span></code> command line argument</p></li>
+<li><p>Clang</p></li>
+</ul>
+</section>
+<section id="new-features">
+<h3>New features<a class="headerlink" href="#new-features" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Exceptions</p></li>
+<li><p>Synchronization</p></li>
+</ul>
+</section>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>On GCC, you can use the <code class="docutils literal notranslate"><span class="pre">fobjc-std=objc1</span></code> to disable Objective-C 2.0.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>References<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gcc.gnu.org/onlinedocs/gcc-11.2.0/gcc/Standards.html#Objective-C-and-Objective-C_002b_002b-Languages">GCC Standards - Objective-C and Objective-C++</a></p></li>
+</ul>
+<p>=(v2.0)</p>
+</section>
+</section>
+<section id="v2-0-2007-leopard">
+<h2>v2.0 - 2007 - Leopard<a class="headerlink" href="#v2-0-2007-leopard" title="Permalink to this heading">#</a></h2>
+<section id="id9">
+<h3>Availability<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
+<section id="id10">
+<h4>Compilers<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Xcode &gt;= 3.0</p></li>
+<li><p>GCC &gt;= 4.6</p></li>
+<li><p>Clang &gt;= 1.0</p></li>
+</ul>
+</section>
+<section id="id11">
+<h4>Runtimes<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Apple runtime &gt;= (10.5 Leopard)</p></li>
+<li><p>GCC runtime &gt;= GCC 4.6</p></li>
+<li><p>Etoile runtime</p></li>
+<li><p>GCC runtime with <code class="docutils literal notranslate"><span class="pre">ObjectiveC2.framework</span></code></p></li>
+<li><p>GNUstep runtime (all versions)</p></li>
+</ul>
+</section>
+</section>
+<section id="id12">
+<h3>Major new features<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Garbage collection</p>
+<ul>
+<li><p>Didn’t really take off, was replaced by Automatic Reference Counting</p></li>
+<li><p>Not supported anywhere anymore</p></li>
+<li><p>Different from GNUstep garbage collection</p></li>
+</ul>
+</li>
+<li><p>Properties <code class="docutils literal notranslate"><span class="pre">&#64;property</span></code></p>
+<ul>
+<li><p>Automatic getter and setter generation <code class="docutils literal notranslate"><span class="pre">&#64;synthesize</span></code></p></li>
+<li><p>Dot notation <code class="docutils literal notranslate"><span class="pre">object.count</span></code> instead of <code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">count]</span></code> and <code class="docutils literal notranslate"><span class="pre">[object</span> <span class="pre">setCount:</span> <span class="pre">]</span></code></p></li>
+</ul>
+</li>
+<li><p>Non-fragile ivars (requires runtime support)</p></li>
+<li><p>Fast enumeration <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">(id</span> <span class="pre">thing</span> <span class="pre">in</span> <span class="pre">myList)</span></code></p></li>
+<li><p>properties (via the &#64;property, &#64;synthesize and &#64;dynamic keywords), fast enumeration (not available in Objective-C++), attributes for methods (such as deprecated, noreturn, sentinel, format), the unused attribute for method arguments, the &#64;package keyword for instance variables and the &#64;optional and &#64;required keywords in protocols</p></li>
+</ul>
+</section>
+<section id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Objective-C#Objective-C_2.0">Wikipedia article</a></p></li>
+<li><p><a class="reference external" href="https://web.archive.org/web/20080517213700if_/http://developer.apple.com/releasenotes/DeveloperTools/RN-Xcode/index.html#//apple_ref/doc/uid/TP40001051-DontLinkElementID_2">Xcode 3.0 Release Notes</a></p>
+<ul>
+<li><p>Objective-C has been enhanced with support for properties, fast enumeration, optional methods in protocols, and garbage collection.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://developer.apple.com/library/archive/releasenotes/Cocoa/RN-ObjectiveC/index.html#//apple_ref/doc/uid/TP40004309">Objective-C 2.0 Release Notes</a></p></li>
+<li><p><a class="reference external" href="https://web.archive.org/web/20070629103804if_/http://www.apple.com/macosx/leopard/developer/xcode.html">Xcode 3.0 Advertisement</a></p>
+<ul>
+<li><p>Enjoy modern garbage collection, syntax enhancements, runtime performance improvements, and 64-bit support.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://gcc.gnu.org/gcc-4.6/changes.html#objective-c">GCC 4.6 Release Notes</a></p></li>
+</ul>
+<p>=(v2.1)</p>
+</section>
+</section>
+<section id="v2-1-2011-arc-xcode-4-2">
+<h2>v2.1 - 2011 - ARC, Xcode 4.2<a class="headerlink" href="#v2-1-2011-arc-xcode-4-2" title="Permalink to this heading">#</a></h2>
+<section id="id13">
+<h3>Availability<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h3>
+<section id="id14">
+<h4>Compilers<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Xcode &gt;= 4.2</p></li>
+<li><p>Clang (upstream) &gt;= 3.0</p>
+<ul>
+<li><p>Apple LLVM Compiler &gt;= 3.0</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id15">
+<h4>Runtimes<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Apple runtime &gt;= (Mac OS X 10.7 / iOS 5)</p></li>
+<li><p>GNUstep runtime &gt;= 1.6</p></li>
+</ul>
+</section>
+</section>
+<section id="id16">
+<h3>Major new features<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h3>
+<p>ARC, <code class="docutils literal notranslate"><span class="pre">&#64;autoreleasepool</span></code>, completely private ivars</p>
+<ul class="simple">
+<li><p>Automatic Reference Counting (ARC) and an improved memory model cleanly separating object and C memory.</p></li>
+<li><p>A migration tool for moving manual retain/release code to ARC</p></li>
+<li><p>Better support for data hiding, allowing instance variables to be declared in implementation contexts or class extensions</p></li>
+<li><p>Weak linking support for Objective-C classes</p></li>
+<li><p>Improved static type checking by inferring the return type of methods such as <code class="docutils literal notranslate"><span class="pre">+alloc</span></code> and <code class="docutils literal notranslate"><span class="pre">-init</span></code>.</p></li>
+</ul>
+</section>
+<section id="id17">
+<h3>Resources<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://releases.llvm.org/3.0/docs/ClangReleaseNotes.html#objchanges">Clang 3.0 release notes</a></p></li>
+<li><p><a class="reference external" href="https://releases.llvm.org/3.0/docs/ReleaseNotes.html#clang">LLVM 3.0 release notes</a></p></li>
+</ul>
+</section>
+</section>
+<section id="v2-1-1-2012-xcode-4-3">
+<h2>v2.1.1 - 2012 - Xcode 4.3<a class="headerlink" href="#v2-1-1-2012-xcode-4-3" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="v2-2-2012-literals-xcode-4-4">
+<h2>v2.2 - 2012 - Literals, Xcode 4.4<a class="headerlink" href="#v2-2-2012-literals-xcode-4-4" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Literals syntax is supported for NSArray, NSDictionary, and NSNumber objects, using the same <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> operator as for NSString literals.</p></li>
+<li><p>Subscripting is enabled for Objective-C containers, including NSDictionary and NSArray. Use the <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> syntax convention.</p></li>
+<li><p>Objective-C <code class="docutils literal notranslate"><span class="pre">&#64;properties</span></code> are synthesized by default when not explicitly implemented.</p></li>
+</ul>
+</section>
+<section id="v2-3-2015-xcode-7-0">
+<h2>v2.3 - 2015 - Xcode 7.0<a class="headerlink" href="#v2-3-2015-xcode-7-0" title="Permalink to this heading">#</a></h2>
+<section id="id18">
+<h3>Availability<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h3>
+<section id="id19">
+<h4>Compilers<a class="headerlink" href="#id19" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Xcode &gt;= 7.0</p></li>
+<li><p>Clang &gt;=</p></li>
+</ul>
+</section>
+<section id="runtime">
+<h4>Runtime<a class="headerlink" href="#runtime" title="Permalink to this heading">#</a></h4>
+<p>The new features require no runtime support.</p>
+</section>
+<section id="frameworks">
+<h4>Frameworks<a class="headerlink" href="#frameworks" title="Permalink to this heading">#</a></h4>
+</section>
+</section>
+<section id="id20">
+<h3>New features<a class="headerlink" href="#id20" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Nullability</p></li>
+<li><p>Lightweight generics</p></li>
+<li><p>Kindof types</p></li>
+</ul>
+</section>
+<section id="id21">
+<h3>References<a class="headerlink" href="#id21" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developer.apple.com/library/archive/releasenotes/DeveloperTools/RN-Xcode/Chapters/Introduction.html#//apple_ref/doc/uid/TP40001051-CH1-SW343">Xcode 7.0 release notes - Objective-C language changes</a></p></li>
+</ul>
+</section>
+</section>
+<section id="unknown-2-x">
+<h2>Unknown 2.x<a class="headerlink" href="#unknown-2-x" title="Permalink to this heading">#</a></h2>
+<p>https://developer.apple.com/library/archive/releasenotes/ObjectiveC/ModernizationObjC/AdoptingModernObjective-C/AdoptingModernObjective-C.html</p>
+<ul class="simple">
+<li><p>instancetype</p></li>
+<li><p>Enumeration macros</p></li>
+<li><p>Designated initializers</p></li>
+<li></li>
+</ul>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../Manual/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Manual</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="EnvInformation.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Getting Environment Information</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Language Versions</a><ul>
+<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#v0-8-lowest-common-denominator">v0.8 - Lowest Common Denominator</a><ul>
+<li><a class="reference internal" href="#availability">Availability</a><ul>
+<li><a class="reference internal" href="#compilers">Compilers</a></li>
+<li><a class="reference internal" href="#runtimes">Runtimes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#available-features">Available features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-9-categories">v0.9 - Categories</a><ul>
+<li><a class="reference internal" href="#id1">Availability</a><ul>
+<li><a class="reference internal" href="#id2">Compilers</a></li>
+<li><a class="reference internal" href="#id3">Runtimes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#new-features-since-v0-8">New features since v0.8</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-10-next-release-3-0">v0.10 - NeXT Release 3.0</a><ul>
+<li><a class="reference internal" href="#id4">Availability</a><ul>
+<li><a class="reference internal" href="#id5">Compilers</a></li>
+<li><a class="reference internal" href="#id6">Runtimes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#major-new-features">Major new features</a></li>
+<li><a class="reference internal" href="#changes-since-v0-9">Changes since v0.9</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-0-exceptions-and-synchronization">v1.0 - Exceptions and synchronization</a><ul>
+<li><a class="reference internal" href="#id7">Availability</a></li>
+<li><a class="reference internal" href="#new-features">New features</a></li>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#id8">References</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v2-0-2007-leopard">v2.0 - 2007 - Leopard</a><ul>
+<li><a class="reference internal" href="#id9">Availability</a><ul>
+<li><a class="reference internal" href="#id10">Compilers</a></li>
+<li><a class="reference internal" href="#id11">Runtimes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id12">Major new features</a></li>
+<li><a class="reference internal" href="#resources">Resources</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v2-1-2011-arc-xcode-4-2">v2.1 - 2011 - ARC, Xcode 4.2</a><ul>
+<li><a class="reference internal" href="#id13">Availability</a><ul>
+<li><a class="reference internal" href="#id14">Compilers</a></li>
+<li><a class="reference internal" href="#id15">Runtimes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id16">Major new features</a></li>
+<li><a class="reference internal" href="#id17">Resources</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v2-1-1-2012-xcode-4-3">v2.1.1 - 2012 - Xcode 4.3</a></li>
+<li><a class="reference internal" href="#v2-2-2012-literals-xcode-4-4">v2.2 - 2012 - Literals, Xcode 4.4</a></li>
+<li><a class="reference internal" href="#v2-3-2015-xcode-7-0">v2.3 - 2015 - Xcode 7.0</a><ul>
+<li><a class="reference internal" href="#id18">Availability</a><ul>
+<li><a class="reference internal" href="#id19">Compilers</a></li>
+<li><a class="reference internal" href="#runtime">Runtime</a></li>
+<li><a class="reference internal" href="#frameworks">Frameworks</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id20">New features</a></li>
+<li><a class="reference internal" href="#id21">References</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#unknown-2-x">Unknown 2.x</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=5b92e3a5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
+</html>

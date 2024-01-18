@@ -1,0 +1,399 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="NS_ERROR_ENUM / CF_ERROR_ENUM" href="NS_ERROR_ENUM.html" /><link rel="prev" title="NS_CLOSED_ENUM / CF_CLOSED_ENUM" href="NS_CLOSED_ENUM.html" />
+
+    <!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
+        <title>NS_ENUM / CF_ENUM - Objective-C 2.4 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Objective-C 2.4 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Objective-C 2.4 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Objective-C Language Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Objective-C Language Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Attributes.html">Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BasicTypes.html">Basic Types</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html"><code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> macros</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of NS_ENUM macros</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="NS_CLOSED_ENUM.html"><code class="docutils literal notranslate"><span class="pre">NS_CLOSED_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_CLOSED_ENUM</span></code></a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_ENUM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="NS_ERROR_ENUM.html"><code class="docutils literal notranslate"><span class="pre">NS_ERROR_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_ERROR_ENUM</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Classes.html">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LightweightGenerics.html">Lightweight Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Exceptions.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FastEnumeration.html">Fast enumeration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../StringLiterals.html">String literals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DynamicLiterals.html">Dynamic literals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TraditionalMessageForwarding.html">Traditional Message Forwarding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Modules.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EnvInformation.html">Getting Environment Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Versions.html">Language Versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Manual/index.html">Manual</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Manual</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Manual/Introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Manual/Objects.html">2.2 Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Manual/Classes.html">Classes</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <blockquote>
+<div><p><strong>Note</strong>: The definitions shown here are not always the actual definitons and therefore might not compile.</p>
+</div></blockquote>
+<section id="ns-enum-cf-enum">
+<h1><code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_ENUM</span></code><a class="headerlink" href="#ns-enum-cf-enum" title="Permalink to this heading">#</a></h1>
+<p>Declares an enum.</p>
+<section id="declaration">
+<h2>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading">#</a></h2>
+<div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="cp">#define NS_ENUM(...) CF_ENUM(__VA_ARGS__)</span>
+<span class="cp">#define CF_ENUM(_type) </span><span class="cm">/* ... */</span>
+<span class="cp">#define CF_ENUM(_type, _name) </span><span class="cm">/* ... */</span>
+</pre></div>
+</div>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p>type name <strong><code class="docutils literal notranslate"><span class="pre">_type</span></code></strong><br />
+The integer type used for the values of the enum.</p>
+</div></blockquote>
+<blockquote>
+<div><p>identifier <strong><code class="docutils literal notranslate"><span class="pre">_name</span></code></strong> <em>(optional)</em><br />
+The name of the generated typedef.</p>
+</div></blockquote>
+</section>
+<section id="equivalent-attributes">
+<h2>Equivalent attributes<a class="headerlink" href="#equivalent-attributes" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://clang.llvm.org/docs/AttributeReference.html#enum-extensibility"><code class="docutils literal notranslate"><span class="pre">__attribute__((enum_extensibility(open)))</span></code></a></p>
+</section>
+<section id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">CF_ENUM</span></code> and <code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> support the use of one or two arguments. The first argument (<code class="docutils literal notranslate"><span class="pre">_type</span></code>) is always the integer type used for the values of the enum. The second argument (<code class="docutils literal notranslate"><span class="pre">_name</span></code>) is an optional type name for the macro.</p>
+<p>When specifying a type name, you must precede the macro with <code class="docutils literal notranslate"><span class="pre">typedef</span></code>. This will result in a typename being produced with the type <code class="docutils literal notranslate"><span class="pre">_type</span></code> and the name <code class="docutils literal notranslate"><span class="pre">_name</span></code>. For example:</p>
+<div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span><span class="w"> </span><span class="n">NSComparisonResult</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>will produce a typedef:</p>
+<div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">NSInteger</span><span class="w"> </span><span class="n">NSComparisonResult</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If you do not specify a type name, do not use <code class="docutils literal notranslate"><span class="pre">typedef</span></code> before the macro. For example:</p>
+<div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>will not produce a type name.</p>
+<p>The macro adds compiler attributes and the underlying integer type to the enum declaration when using a recent version of Clang.</p>
+</section>
+<section id="importing-into-swift">
+<h2>Importing into Swift<a class="headerlink" href="#importing-into-swift" title="Permalink to this heading">#</a></h2>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> macro for simple groups of constants.</p>
+<p>The example below uses the macro to declare a <code class="docutils literal notranslate"><span class="pre">UITableViewCellStyle</span> </code>enumeration that groups several different view styles for table views:</p>
+<div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span><span class="w"> </span><span class="n">UITableViewCellStyle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">UITableViewCellStyleDefault</span><span class="p">,</span>
+<span class="w">    </span><span class="n">UITableViewCellStyleValue1</span><span class="p">,</span>
+<span class="w">    </span><span class="n">UITableViewCellStyleValue2</span><span class="p">,</span>
+<span class="w">    </span><span class="n">UITableViewCellStyleSubtitle</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>In Swift, the UITableViewCellStyle enumeration is imported like this:</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">enum</span> <span class="nc">UITableViewCellStyle</span><span class="p">:</span> <span class="nb">Int</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="p">`</span><span class="k">default</span><span class="p">`</span>
+    <span class="k">case</span> <span class="n">value1</span>
+    <span class="k">case</span> <span class="n">value2</span>
+    <span class="k">case</span> <span class="n">subtitle</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Enumerations imported using the <code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> macro won’t fail when you initialize one with a raw value that does not correspond to an enumeration case. This characteristic facilitates compatibility with C, which allows any value to be stored in an enumeration, including values used internally but not exposed in headers.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> macro is the only enumeration macro that results in an actual enumeration type when imported to Swift. The other enumeration macros generate structures.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/apple/swift-corelibs-foundation/blob/master/CoreFoundation/Base.subproj/CFAvailability.h"><code class="docutils literal notranslate"><span class="pre">&lt;CoreFoundation/CFAvailability.h&gt;</span></code></a><br />
+<a class="reference external" href="https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX11.3.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSObjCRuntime.h"><code class="docutils literal notranslate"><span class="pre">&lt;Foundation/NSObjCRuntime.h&gt;</span></code></a><br />
+<a class="reference external" href="https://clang.llvm.org/docs/AttributeReference.html#enum-extensibility">Clang documentation for <code class="docutils literal notranslate"><span class="pre">__attribute__(enum_extensibility)</span></code></a></p>
+<p><a class="reference external" href="https://developer.apple.com/documentation/swift/objective-c_and_c_code_customization/grouping_related_objective-c_constants">“Grouping Related Objective-C Constants”</a></p>
+<p><a class="reference external" href="https://nshipster.com/ns_enum-ns_options/">NSHipster article</a></p>
+</section>
+<section id="documentation-copyright">
+<h2>Documentation copyright<a class="headerlink" href="#documentation-copyright" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>Note</strong>: This page uses a modified version of the documentation found in the CoreFoundation header files, which are licensed under Apache License v2.0 with Runtime Library Exception.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Note</strong>: This page also uses a modified version of the documentation found in the Apple Foundation header files, which are proprietary.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Note</strong>: This page also quotes from <a class="reference external" href="https://developer.apple.com/documentation/swift/objective-c_and_c_code_customization/grouping_related_objective-c_constants">“Grouping Related Objective-C Constants”</a>, which is proprietary.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Note</strong>: This page also quotes from Swift Evolution proposals, which are licensed under Apache License v2.0 with Runtime Library Exception.</p>
+</div></blockquote>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="NS_ERROR_ENUM.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title"><code class="docutils literal notranslate"><span class="pre">NS_ERROR_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_ERROR_ENUM</span></code></div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="NS_CLOSED_ENUM.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title"><code class="docutils literal notranslate"><span class="pre">NS_CLOSED_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_CLOSED_ENUM</span></code></div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_ENUM</span></code></a><ul>
+<li><a class="reference internal" href="#declaration">Declaration</a></li>
+<li><a class="reference internal" href="#parameters">Parameters</a></li>
+<li><a class="reference internal" href="#equivalent-attributes">Equivalent attributes</a></li>
+<li><a class="reference internal" href="#discussion">Discussion</a></li>
+<li><a class="reference internal" href="#importing-into-swift">Importing into Swift</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#documentation-copyright">Documentation copyright</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=5b92e3a5"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
+</html>
