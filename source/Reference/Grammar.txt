@@ -1,0 +1,464 @@
+
+///       external-declaration: [C99 6.9]
+/// [OBJC]  objc-class-definition
+/// [OBJC]  objc-class-declaration
+/// [OBJC]  objc-alias-declaration
+/// [OBJC]  objc-protocol-definition
+/// [OBJC]  objc-method-definition
+/// [OBJC]  '@' 'end'
+
+/// objc-class-declaration:
+///    '@' 'class' objc-class-forward-decl (',' objc-class-forward-decl)* ';'
+///
+/// objc-class-forward-decl:
+///   identifier objc-type-parameter-list[opt]
+
+///   objc-interface:
+///     objc-class-interface-attributes[opt] objc-class-interface
+///     objc-category-interface
+///
+///   objc-class-interface:
+///     '@' 'interface' identifier objc-type-parameter-list[opt]
+///       objc-superclass[opt] objc-protocol-refs[opt]
+///       objc-class-instance-variables[opt]
+///       objc-interface-decl-list
+///     @end
+///
+///   objc-category-interface:
+///     '@' 'interface' identifier objc-type-parameter-list[opt]
+///       '(' identifier[opt] ')' objc-protocol-refs[opt]
+///       objc-interface-decl-list
+///     @end
+///
+///   objc-superclass:
+///     ':' identifier objc-type-arguments[opt]
+///
+///   objc-class-interface-attributes:
+///     __attribute__((visibility("default")))
+///     __attribute__((visibility("hidden")))
+///     __attribute__((deprecated))
+///     __attribute__((unavailable))
+///     __attribute__((objc_exception)) - used by NSException on 64-bit
+///     __attribute__((objc_root_class))
+
+///   objc-type-parameter-list:
+///     '<' objc-type-parameter (',' objc-type-parameter)* '>'
+///
+///   objc-type-parameter:
+///     objc-type-parameter-variance? identifier objc-type-parameter-bound[opt]
+///
+///   objc-type-parameter-bound:
+///     ':' type-name
+///
+///   objc-type-parameter-variance:
+///     '__covariant'
+///     '__contravariant'
+
+///   objc-interface-decl-list:
+///     empty
+///     objc-interface-decl-list objc-property-decl [OBJC2]
+///     objc-interface-decl-list objc-method-requirement [OBJC2]
+///     objc-interface-decl-list objc-method-proto ';'
+///     objc-interface-decl-list declaration
+///     objc-interface-decl-list ';'
+///
+///   objc-method-requirement: [OBJC2]
+///     @required
+///     @optional
+
+///   property-attr-decl: '(' property-attrlist ')'
+///   property-attrlist:
+///     property-attribute
+///     property-attrlist ',' property-attribute
+///   property-attribute:
+///     getter '=' identifier
+///     setter '=' identifier ':'
+///     direct
+///     readonly
+///     readwrite
+///     assign
+///     retain
+///     copy
+///     nonatomic
+///     atomic
+///     strong
+///     weak
+///     unsafe_unretained
+///     nonnull
+///     nullable
+///     null_unspecified
+///     null_resettable
+///     class
+
+///   objc-method-proto:
+///     objc-instance-method objc-method-decl objc-method-attributes[opt]
+///     objc-class-method objc-method-decl objc-method-attributes[opt]
+///
+///   objc-instance-method: '-'
+///   objc-class-method: '+'
+///
+///   objc-method-attributes:         [OBJC2]
+///     __attribute__((deprecated))
+
+///   objc-selector:
+///     identifier
+///     one of
+///       enum struct union if else while do for switch case default
+///       break continue return goto asm sizeof typeof __alignof
+///       unsigned long const short volatile signed restrict _Complex
+///       in out inout bycopy byref oneway int char float double void _Bool
+
+
+///  objc-for-collection-in: 'in'
+
+///   objc-type-qualifiers:
+///     objc-type-qualifier
+///     objc-type-qualifiers objc-type-qualifier
+///
+///   objc-type-qualifier:
+///     'in'
+///     'out'
+///     'inout'
+///     'oneway'
+///     'bycopy'
+///     'byref'
+///     'nonnull'
+///     'nullable'
+///     'null_unspecified'
+
+///   objc-type-name:
+///     '(' objc-type-qualifiers[opt] type-name ')'
+///     '(' objc-type-qualifiers[opt] ')'
+
+///   objc-method-decl:
+///     objc-selector
+///     objc-keyword-selector objc-parmlist[opt]
+///     objc-type-name objc-selector
+///     objc-type-name objc-keyword-selector objc-parmlist[opt]
+///
+///   objc-keyword-selector:
+///     objc-keyword-decl
+///     objc-keyword-selector objc-keyword-decl
+///
+///   objc-keyword-decl:
+///     objc-selector ':' objc-type-name objc-keyword-attributes[opt] identifier
+///     objc-selector ':' objc-keyword-attributes[opt] identifier
+///     ':' objc-type-name objc-keyword-attributes[opt] identifier
+///     ':' objc-keyword-attributes[opt] identifier
+///
+///   objc-parmlist:
+///     objc-parms objc-ellipsis[opt]
+///
+///   objc-parms:
+///     objc-parms , parameter-declaration
+///
+///   objc-ellipsis:
+///     , ...
+///
+///   objc-keyword-attributes:         [OBJC2]
+///     __attribute__((unused))
+
+///   objc-protocol-refs:
+///     '<' identifier-list '>'
+
+///   objc-type-arguments:
+///     '<' type-name '...'[opt] (',' type-name '...'[opt])* '>'
+
+///   objc-class-instance-variables:
+///     '{' objc-instance-variable-decl-list[opt] '}'
+///
+///   objc-instance-variable-decl-list:
+///     objc-visibility-spec
+///     objc-instance-variable-decl ';'
+///     ';'
+///     objc-instance-variable-decl-list objc-visibility-spec
+///     objc-instance-variable-decl-list objc-instance-variable-decl ';'
+///     objc-instance-variable-decl-list static_assert-declaration
+///     objc-instance-variable-decl-list ';'
+///
+///   objc-visibility-spec:
+///     @private
+///     @protected
+///     @public
+///     @package [OBJC2]
+///
+///   objc-instance-variable-decl:
+///     struct-declaration
+
+///   objc-protocol-declaration:
+///     objc-protocol-definition
+///     objc-protocol-forward-reference
+///
+///   objc-protocol-definition:
+///     \@protocol identifier
+///       objc-protocol-refs[opt]
+///       objc-interface-decl-list
+///     \@end
+///
+///   objc-protocol-forward-reference:
+///     \@protocol identifier-list ';'
+///
+///   "\@protocol identifier ;" should be resolved as "\@protocol
+///   identifier-list ;": objc-interface-decl-list may not start with a
+///   semicolon in the first alternative if objc-protocol-refs are omitted.
+
+///   objc-implementation:
+///     objc-class-implementation-prologue
+///     objc-category-implementation-prologue
+///
+///   objc-class-implementation-prologue:
+///     @implementation identifier objc-superclass[opt]
+///       objc-class-instance-variables[opt]
+///
+///   objc-category-implementation-prologue:
+///     @implementation identifier ( identifier )
+
+///   property-synthesis:
+///     @synthesize property-ivar-list ';'
+///
+///   property-ivar-list:
+///     property-ivar
+///     property-ivar-list ',' property-ivar
+///
+///   property-ivar:
+///     identifier
+///     identifier '=' identifier
+
+///   property-dynamic:
+///     @dynamic  property-list
+///
+///   property-list:
+///     identifier
+///     property-list ',' identifier
+
+///  objc-throw-statement:
+///    throw expression[opt];
+
+/// objc-synchronized-statement:
+///   @synchronized '(' expression ')' compound-statement
+
+///  objc-try-catch-statement:
+///    @try compound-statement objc-catch-list[opt]
+///    @try compound-statement objc-catch-list[opt] @finally compound-statement
+///
+///  objc-catch-list:
+///    @catch ( parameter-declaration ) compound-statement
+///    objc-catch-list @catch ( catch-parameter-declaration ) compound-statement
+///  catch-parameter-declaration:
+///     parameter-declaration
+///     '...' [OBJC2]
+
+/// objc-autoreleasepool-statement:
+///   @autoreleasepool compound-statement
+
+///   objc-method-def: objc-method-proto ';'[opt] '{' body '}'
+
+///   objc-receiver: [C++]
+///     'super' [not parsed here]
+///     expression
+///     simple-type-specifier
+///     typename-specifier
+
+//   objc-receiver:
+    //     expression
+
+  // objc-receiver:
+  //   typename-specifier
+  //   simple-type-specifier
+  //   expression (that starts with one of the above)
+
+///   objc-message-expr:
+///     '[' objc-receiver objc-message-args ']'
+///
+///   objc-receiver: [C]
+///     'super'
+///     expression
+///     class-name
+///     type-name
+
+///   objc-message-args:
+///     objc-selector
+///     objc-keywordarg-list
+///
+///   objc-keywordarg-list:
+///     objc-keywordarg
+///     objc-keywordarg-list objc-keywordarg
+///
+///   objc-keywordarg:
+///     selector-name[opt] ':' objc-keywordexpr
+///
+///   objc-keywordexpr:
+///     nonempty-expr-list
+///
+///   nonempty-expr-list:
+///     assignment-expression
+///     nonempty-expr-list , assignment-expression
+
+/// objc-scalar-literal : '@' boolean-keyword
+///                        ;
+/// boolean-keyword: 'true' | 'false' | '__objc_yes' | '__objc_no'
+///                        ;
+
+/// objc-scalar-literal : '@' character-literal
+///                        ;
+
+/// objc-scalar-literal : '@' scalar-literal
+///                        ;
+/// scalar-literal : | numeric-constant			/* any numeric constant. */
+///                    ;
+
+/// objc-box-expression:
+///       @( assignment-expression )
+
+///    objc-encode-expression:
+///      \@encode ( type-name )
+
+
+///     objc-selector-expression
+///       @selector '(' '('[opt] objc-keyword-selector ')'[opt] ')'
+
+///       StatementOrDeclaration:
+///         statement
+///         declaration
+///
+///       statement:
+///         labeled-statement
+///         compound-statement
+///         expression-statement
+///         selection-statement
+///         iteration-statement
+///         jump-statement
+/// [C++]   declaration-statement
+/// [C++]   try-block
+/// [MS]    seh-try-block
+/// [OBC]   objc-throw-statement
+/// [OBC]   objc-try-catch-statement
+/// [OBC]   objc-synchronized-statement
+/// [GNU]   asm-statement
+/// [OMP]   openmp-construct             [TODO]
+///
+///       labeled-statement:
+///         identifier ':' statement
+///         'case' constant-expression ':' statement
+///         'default' ':' statement
+///
+///       selection-statement:
+///         if-statement
+///         switch-statement
+///
+///       iteration-statement:
+///         while-statement
+///         do-statement
+///         for-statement
+///
+///       expression-statement:
+///         expression[opt] ';'
+///
+///       jump-statement:
+///         'goto' identifier ';'
+///         'continue' ';'
+///         'break' ';'
+///         'return' expression[opt] ';'
+/// [GNU]   'goto' '*' expression ';'
+///
+/// [OBC] objc-throw-statement:
+/// [OBC]   '@' 'throw' expression ';'
+/// [OBC]   '@' 'throw' ';'
+
+///       labeled-statement:
+///         identifier ':' statement
+/// [GNU]   identifier ':' attributes[opt] statement
+
+///       labeled-statement:
+///         'case' constant-expression ':' statement
+/// [GNU]   'case' constant-expression '...' constant-expression ':' statement
+
+///       labeled-statement:
+///         'default' ':' statement
+
+///       compound-statement: [C99 6.8.2]
+///         { block-item-list[opt] }
+/// [GNU]   { label-declarations block-item-list } [TODO]
+///
+///       block-item-list:
+///         block-item
+///         block-item-list block-item
+///
+///       block-item:
+///         declaration
+/// [GNU]   '__extension__' declaration
+///         statement
+///
+/// [GNU] label-declarations:
+/// [GNU]   label-declaration
+/// [GNU]   label-declarations label-declaration
+///
+/// [GNU] label-declaration:
+/// [GNU]   '__label__' identifier-list ';'
+
+/// ParseParenExprOrCondition:
+/// [C  ]     '(' expression ')'
+/// [C++]     '(' condition ')'
+/// [C++1z]   '(' init-statement[opt] condition ')'
+
+///       if-statement: [C99 6.8.4.1]
+///         'if' '(' expression ')' statement
+///         'if' '(' expression ')' statement 'else' statement
+/// [C++]   'if' '(' condition ')' statement
+/// [C++]   'if' '(' condition ')' statement 'else' statement
+/// [C++23] 'if' '!' [opt] consteval compound-statement
+/// [C++23] 'if' '!' [opt] consteval compound-statement 'else' statement
+
+///       switch-statement:
+///         'switch' '(' expression ')' statement
+/// [C++]   'switch' '(' condition ')' statement
+
+///       while-statement: [C99 6.8.5.1]
+///         'while' '(' expression ')' statement
+/// [C++]   'while' '(' condition ')' statement
+
+///       do-statement: [C99 6.8.5.2]
+///         'do' statement 'while' '(' expression ')' ';'
+
+///       for-statement: [C99 6.8.5.3]
+///         'for' '(' expr[opt] ';' expr[opt] ';' expr[opt] ')' statement
+///         'for' '(' declaration expr[opt] ';' expr[opt] ')' statement
+/// [C++]   'for' '(' for-init-statement condition[opt] ';' expression[opt] ')'
+/// [C++]       statement
+/// [C++0x] 'for'
+///             'co_await'[opt]    [Coroutines]
+///             '(' for-range-declaration ':' for-range-initializer ')'
+///             statement
+/// [OBJC2] 'for' '(' declaration 'in' expr ')' statement
+/// [OBJC2] 'for' '(' expr 'in' expr ')' statement
+///
+/// [C++] for-init-statement:
+/// [C++]   expression-statement
+/// [C++]   simple-declaration
+/// [C++2b] alias-declaration
+///
+/// [C++0x] for-range-declaration:
+/// [C++0x]   attribute-specifier-seq[opt] type-specifier-seq declarator
+/// [C++0x] for-range-initializer:
+/// [C++0x]   expression
+/// [C++0x]   braced-init-list            [TODO]
+
+///       jump-statement:
+///         'goto' identifier ';'
+/// [GNU]   'goto' '*' expression ';'
+
+///       jump-statement:
+///         'continue' ';'
+
+///       jump-statement:
+///         'break' ';'
+
+///       jump-statement:
+///         'return' expression[opt] ';'
+///         'return' braced-init-list ';'
+///         'co_return' expression[opt] ';'
+///         'co_return' braced-init-list ';'
+
+
+
+
