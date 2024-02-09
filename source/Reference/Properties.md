@@ -30,6 +30,8 @@ You can **synthesize** a property from an ivar using `@synthesize`. If you do no
 
 Instead of synthesizing the property from the ivar, you can write a getter and a setter method. Just implement the methods that the dot syntax converts to.
 
+`@dynamic` tells the compiler that even though you didn't implement the property, some kind of dynamic mechanism that the compiler doesn't know about, such as message forwarding, swizzling, or categories in other files, will implement the property's required methods. Only use this keyword if you know that the methods will be available before somebody tries to access the properties.
+
 (attributes)=
 ### Property attributes
 
