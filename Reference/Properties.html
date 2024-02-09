@@ -265,8 +265,29 @@
 <p>A property represents a piece of state kept by an object, that is accessed using getters and setters. <code class="docutils literal notranslate"><span class="pre">&#64;property</span></code> creates a <strong>declared property</strong>, which allows you to specify <a class="reference internal" href="#attributes">various attributes</a> about the property. However, the dot syntax is available even for undeclared properties, or even methods that aren’t properties. All you need to read a property is a method with the name of the property, and to write, you just need a method named <code class="docutils literal notranslate"><span class="pre">set</span></code> + property name + <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p>
 <p>You can <strong>synthesize</strong> a property from an ivar using <code class="docutils literal notranslate"><span class="pre">&#64;synthesize</span></code>. If you do not specify an ivar, it will automatically use an ivar with the same name as the property. If you are on a modern runtime with a non-fragile ABI (the Apple 64-bit runtime or GNUstep’s <code class="docutils literal notranslate"><span class="pre">libobjc2</span></code>), then <code class="docutils literal notranslate"><span class="pre">&#64;synthesize</span></code> will create the ivar for you if it is not already declared.</p>
 <p>Instead of synthesizing the property from the ivar, you can write a getter and a setter method. Just implement the methods that the dot syntax converts to.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;dynamic</span></code> tells the compiler that even though you didn’t implement the property, some kind of dynamic mechanism that the compiler doesn’t know about, such as message forwarding, swizzling, or categories in other files, will implement the property’s required methods. Only use this keyword if you know that the methods will be available before somebody tries to access the properties.</p>
 <section id="property-attributes">
 <span id="attributes"></span><h3>Property attributes<a class="headerlink" href="#property-attributes" title="Permalink to this heading">#</a></h3>
+<p>2.0 are supported by GCC &gt;= 4.6, Clang &gt;= 1.0, and Xcode &gt;= 3.0. 2.1 attributes are supported by Clang &gt;= 3.0 and Xcode &gt;= 4.2.</p>
+<p>The following attributes are equivalent:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>2.0</p></th>
+<th class="head"><p>2.1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">assign</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsafe_unretained</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">retain</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">strong</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If you need to support GCC or older versions of Clang, use the 2.0 attribute names instead. However, if your code uses ARC, use the 2.1 attribute names as they are designed to match the ARC keywords.</p>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
 <thead>
@@ -278,71 +299,71 @@
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">atomic</span></code></p></td>
 <td><p><strong>Implicit.</strong> Enables synchronization in synthesized accessor methods.</p></td>
-<td><p></p></td>
+<td><p>2.0</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">nonatomic</span></code></p></td>
 <td><p>Disables synchronization in the synthesized accessor methods.</p></td>
-<td><p></p></td>
+<td><p>2.0</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">readwrite</span></code></p></td>
 <td><p><strong>Implicit.</strong> Synthesizes getter, setter and backing ivar.</p></td>
-<td><p></p></td>
+<td><p>2.0</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">readonly</span></code></p></td>
 <td><p>Synthesizes only the getter method and backing ivar, which can be assigned directly.</p></td>
-<td><p></p></td>
+<td><p>2.0</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">getter=</span></code><strong>name</strong></p></td>
 <td><p>Specifies the name of getter method, implicit is <code class="docutils literal notranslate"><span class="pre">propertyName</span></code>.</p></td>
-<td><p></p></td>
+<td><p>2.0</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">setter=</span></code><strong>name</strong></p></td>
 <td><p>Specifies the name of setter method, implicity is <code class="docutils literal notranslate"><span class="pre">setPropertyName:</span></code>. Colon <code class="docutils literal notranslate"><span class="pre">:</span></code> must be a part of the name.</p></td>
-<td><p></p></td>
+<td><p>2.0</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">strong</span></code></p></td>
 <td><p><strong>Implicit for objects under ARC</strong>. The backing ivar is synthesized using <code class="docutils literal notranslate"><span class="pre">__strong</span></code>, which prevents deallocation of referenced object.</p></td>
-<td><p></p></td>
+<td><p><strong>2.1</strong></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">retain</span></code></p></td>
 <td><p>Synonym for <code class="docutils literal notranslate"><span class="pre">strong</span></code>.</p></td>
-<td><p></p></td>
+<td><p>2.0</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">copy</span></code></p></td>
 <td><p>Same as <code class="docutils literal notranslate"><span class="pre">strong</span></code>, but the synthesized setter also calls <code class="docutils literal notranslate"><span class="pre">-copy</span></code> on the new value.</p></td>
-<td><p></p></td>
+<td><p>2.0</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">unsafe_unretained</span></code></p></td>
 <td><p><strong>Implicit, except for objects under ARC.</strong> The backing ivar is synthesized using <code class="docutils literal notranslate"><span class="pre">__unsafe_unretained</span></code>, which (for obejcts) results in dangling pointer once the referenced object deallocates.</p></td>
-<td><p></p></td>
+<td><p><strong>2.1</strong></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">assign</span></code></p></td>
 <td><p>Synonym for <code class="docutils literal notranslate"><span class="pre">unsafe_unretained</span></code>. Suitable for non-object types.</p></td>
-<td><p></p></td>
+<td><p>2.0</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">weak</span></code></p></td>
 <td><p>Backing ivar is synthesized using <code class="docutils literal notranslate"><span class="pre">__weak</span></code>, so the value will be nullified once the referenced object is deallocated.</p></td>
-<td><p></p></td>
+<td><p><strong>2.1, ARC only</strong></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">class</span></code></p></td>
 <td><p>Property accessors are synthesized as class methods, instead of instance methods. No backing storage is synthesized.</p></td>
-<td><p></p></td>
+<td><p>???</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">nullable</span></code></p></td>
 <td><p>The property accepts <code class="docutils literal notranslate"><span class="pre">nil</span></code> values. Mainly used for Swift bridging.</p></td>
-<td><p></p></td>
+<td><p>???</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nonnull</span></code></p></td>
 <td><p>The property doesn’t accept <code class="docutils literal notranslate"><span class="pre">nil</span></code> values. Mainly used for Swift bridging.</p></td>
-<td><p></p></td>
+<td><p>???</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">null_resettable</span></code></p></td>
 <td><p>The property accepts <code class="docutils literal notranslate"><span class="pre">nil</span></code> values  in setter, but never returns <code class="docutils literal notranslate"><span class="pre">nil</span></code> values from getter. Your custom implementation of getter or setter must ensure this behavior. Mainly used for Swift bridging.</p></td>
-<td><p></p></td>
+<td><p>???</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">null_unspecified</span></code></p></td>
 <td><p><strong>Implicit.</strong> The property doesn’t specify handling of <code class="docutils literal notranslate"><span class="pre">nil</span></code> values. Mainly used for Swift bridging.</p></td>
-<td><p></p></td>
+<td><p>???</p></td>
 </tr>
 </tbody>
 </table>
