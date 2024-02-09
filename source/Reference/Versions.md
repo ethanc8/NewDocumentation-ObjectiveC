@@ -20,7 +20,7 @@
 
 [What's new in Xcode 4](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/WhatsNewXcode/Chapters/xcode_4_0.html#//apple_ref/doc/uid/TP40016147-SW1)
 
-=(v0.8)
+(v0.8)=
 ## v0.8 - Lowest Common Denominator
 
 ### Availability
@@ -48,7 +48,7 @@
 * `@interface`...`@end` class declarations
 * `@implementation`...`@end` class definitions
 
-=(v0.9)
+(v0.9)=
 ## v0.9 - Categories
 
 ### Availability
@@ -71,7 +71,7 @@
 
 * **Major feature: Categories**
 
-=(v0.10)
+(v0.10)=
 ## v0.10 - NeXT Release 3.0
 
 This release introduces some C99 features.
@@ -112,7 +112,7 @@ This release introduces some C99 features.
     * `format`
 * New `@encode` encodings for `in`, `out`, `inout`, `bycopy`, `oneway`, `const`.
 
-=(v1.0)
+(v1.0)=
 ## v1.0 - Exceptions and synchronization
 
 ### Availability
@@ -133,7 +133,7 @@ This release introduces some C99 features.
 
 * [GCC Standards - Objective-C and Objective-C++](https://gcc.gnu.org/onlinedocs/gcc-11.2.0/gcc/Standards.html#Objective-C-and-Objective-C_002b_002b-Languages)
 
-=(v2.0)
+(v2.0)=
 ## v2.0 - 2007 - Leopard
 
 ### Availability
@@ -176,7 +176,7 @@ This release introduces some C99 features.
 
 
 
-=(v2.1)
+(v2.1)=
 ## v2.1 - 2011 - ARC, Xcode 4.2
 
 ### Availability
@@ -207,14 +207,17 @@ ARC, `@autoreleasepool`, completely private ivars
 * [Clang 3.0 release notes](https://releases.llvm.org/3.0/docs/ClangReleaseNotes.html#objchanges)
 * [LLVM 3.0 release notes](https://releases.llvm.org/3.0/docs/ReleaseNotes.html#clang)
 
+(v2.1.1)=
 ## v2.1.1 - 2012 - Xcode 4.3
 
+(v2.2)=
 ## v2.2 - 2012 - Literals, Xcode 4.4
 
 * Literals syntax is supported for NSArray, NSDictionary, and NSNumber objects, using the same `@` operator as for NSString literals.
 * Subscripting is enabled for Objective-C containers, including NSDictionary and NSArray. Use the `[ ]` syntax convention.
 * Objective-C `@properties` are synthesized by default when not explicitly implemented.
 
+(v2.3)=
 ## v2.3 - 2015 - Xcode 7.0
 
 ### Availability
