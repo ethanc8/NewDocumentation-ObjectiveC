@@ -218,7 +218,31 @@ ARC, `@autoreleasepool`, completely private ivars
 * Objective-C `@properties` are synthesized by default when not explicitly implemented.
 
 (v2.3)=
-## v2.3 - 2015 - Xcode 7.0
+## v2.3 - Xcode 6.3
+
+### Availability
+
+#### Compilers
+
+* Xcode >= 6.3
+* Clang >= 3.6.0
+  * Apple LLVM Compiler >= 6.1.0, clang-602.0.49
+
+#### Runtime
+
+The new features require no runtime support.
+
+### New features
+
+* Nullability specifiers
+  * [Clang documentation](https://clang.llvm.org/docs/AttributeReference.html#nullability-attributes)
+
+### References
+
+* [Xcode 6.3 release notes](https://developer.apple.com/library/archive/releasenotes/DeveloperTools/RN-Xcode/Chapters/Introduction.html#//apple_ref/doc/uid/TP40001051-CH1-SW396)
+
+(v2.3.1)=
+## v2.3.1 - 2015 - Xcode 7.0
 
 ### Availability
 
@@ -231,13 +255,9 @@ ARC, `@autoreleasepool`, completely private ivars
 
 The new features require no runtime support.
 
-#### Frameworks
-
-
-
 ### New features
 
-* Nullability
+* Nullability specifiers are now `_Nullable`, `_Nonnull`, and `_Null_unspecified` instead of `__nullable`, `__nonnull`, and `__null_unspecified`
 * Lightweight generics
 * Kindof types
 
