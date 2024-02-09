@@ -20,7 +20,7 @@
 
 [What's new in Xcode 4](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/WhatsNewXcode/Chapters/xcode_4_0.html#//apple_ref/doc/uid/TP40016147-SW1)
 
-=(v0.8)
+(v0.8)=
 ## v0.8 - Lowest Common Denominator
 
 ### Availability
@@ -48,7 +48,7 @@
 * `@interface`...`@end` class declarations
 * `@implementation`...`@end` class definitions
 
-=(v0.9)
+(v0.9)=
 ## v0.9 - Categories
 
 ### Availability
@@ -71,7 +71,7 @@
 
 * **Major feature: Categories**
 
-=(v0.10)
+(v0.10)=
 ## v0.10 - NeXT Release 3.0
 
 This release introduces some C99 features.
@@ -112,7 +112,7 @@ This release introduces some C99 features.
     * `format`
 * New `@encode` encodings for `in`, `out`, `inout`, `bycopy`, `oneway`, `const`.
 
-=(v1.0)
+(v1.0)=
 ## v1.0 - Exceptions and synchronization
 
 ### Availability
@@ -133,7 +133,7 @@ This release introduces some C99 features.
 
 * [GCC Standards - Objective-C and Objective-C++](https://gcc.gnu.org/onlinedocs/gcc-11.2.0/gcc/Standards.html#Objective-C-and-Objective-C_002b_002b-Languages)
 
-=(v2.0)
+(v2.0)=
 ## v2.0 - 2007 - Leopard
 
 ### Availability
@@ -169,6 +169,8 @@ This release introduces some C99 features.
 * [Wikipedia article](https://en.wikipedia.org/wiki/Objective-C#Objective-C_2.0)
 * [Xcode 3.0 Release Notes](https://web.archive.org/web/20080517213700if_/http://developer.apple.com/releasenotes/DeveloperTools/RN-Xcode/index.html#//apple_ref/doc/uid/TP40001051-DontLinkElementID_2)
     * Objective-C has been enhanced with support for properties, fast enumeration, optional methods in protocols, and garbage collection.
+    * [What's New in Xcode 3.0 (PDF)](https://web.archive.org/web/20080303091141if_/http://developer.apple.com/documentation/DeveloperTools/Conceptual/WhatsNewXcode/WhatsNewXcode.pdf)
+      * doesn't seem relevant
 * [Objective-C 2.0 Release Notes](https://developer.apple.com/library/archive/releasenotes/Cocoa/RN-ObjectiveC/index.html#//apple_ref/doc/uid/TP40004309)
 * [Xcode 3.0 Advertisement](https://web.archive.org/web/20070629103804if_/http://www.apple.com/macosx/leopard/developer/xcode.html)
     * Enjoy modern garbage collection, syntax enhancements, runtime performance improvements, and 64-bit support.
@@ -176,7 +178,7 @@ This release introduces some C99 features.
 
 
 
-=(v2.1)
+(v2.1)=
 ## v2.1 - 2011 - ARC, Xcode 4.2
 
 ### Availability
@@ -194,27 +196,28 @@ This release introduces some C99 features.
 
 ARC, `@autoreleasepool`, completely private ivars
 
-
 * Automatic Reference Counting (ARC) and an improved memory model cleanly separating object and C memory.
 * A migration tool for moving manual retain/release code to ARC
 * Better support for data hiding, allowing instance variables to be declared in implementation contexts or class extensions
 * Weak linking support for Objective-C classes
 * Improved static type checking by inferring the return type of methods such as `+alloc` and `-init`.
 
-
 ### Resources
 
 * [Clang 3.0 release notes](https://releases.llvm.org/3.0/docs/ClangReleaseNotes.html#objchanges)
 * [LLVM 3.0 release notes](https://releases.llvm.org/3.0/docs/ReleaseNotes.html#clang)
 
+(v2.1.1)=
 ## v2.1.1 - 2012 - Xcode 4.3
 
+(v2.2)=
 ## v2.2 - 2012 - Literals, Xcode 4.4
 
 * Literals syntax is supported for NSArray, NSDictionary, and NSNumber objects, using the same `@` operator as for NSString literals.
 * Subscripting is enabled for Objective-C containers, including NSDictionary and NSArray. Use the `[ ]` syntax convention.
 * Objective-C `@properties` are synthesized by default when not explicitly implemented.
 
+(v2.3)=
 ## v2.3 - 2015 - Xcode 7.0
 
 ### Availability
