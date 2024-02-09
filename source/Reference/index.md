@@ -8,19 +8,18 @@ This section documents its features, and is intended as a companion to <cpprefer
 titlesonly: true
 caption: Contents
 ---
-Attributes.md
 BasicTypes.md
-NS_ENUM/index.md
-
 Classes.md
+Properties.md
 LightweightGenerics.md
-
-Exceptions.md
-FastEnumeration.md
 
 StringLiterals.md
 DynamicLiterals.rst
+FastEnumeration.md
+Exceptions.md
 
+Attributes.md
+NS_ENUM/index.md
 TraditionalMessageForwarding.md
 Modules.rst
 
