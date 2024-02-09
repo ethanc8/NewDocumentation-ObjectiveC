@@ -35,25 +35,36 @@ Instead of synthesizing the property from the ivar, you can write a getter and a
 (attributes)=
 ### Property attributes
 
+2.0 are supported by GCC >= 4.6, Clang >= 1.0, and Xcode >= 3.0. 2.1 attributes are supported by Clang >= 3.0 and Xcode >= 4.2.
+
+The following attributes are equivalent:
+
+| 2.0      | 2.1                 |
+| -------- | ------------------- |
+| `assign` | `unsafe_unretained` |
+| `retain` | `strong`            |
+
+If you need to support GCC or older versions of Clang, use the 2.0 attribute names instead. However, if your code uses ARC, use the 2.1 attribute names as they are designed to match the ARC keywords.
+
 |Attribute|Description|Since
 |---|---|---
-|`atomic`|**Implicit.** Enables synchronization in synthesized accessor methods.
-|`nonatomic`|Disables synchronization in the synthesized accessor methods.
-|`readwrite`|**Implicit.** Synthesizes getter, setter and backing ivar.
-|`readonly`|Synthesizes only the getter method and backing ivar, which can be assigned directly.
-|`getter=`**name**|Specifies the name of getter method, implicit is `propertyName`.
-|`setter=`**name**|Specifies the name of setter method, implicity is `setPropertyName:`. Colon `:` must be a part of the name.
-|`strong`|**Implicit for objects under ARC**. The backing ivar is synthesized using `__strong`, which prevents deallocation of referenced object.
-|`retain`|Synonym for `strong`.
-|`copy`|Same as `strong`, but the synthesized setter also calls `-copy` on the new value.
-|`unsafe_unretained`|**Implicit, except for objects under ARC.** The backing ivar is synthesized using `__unsafe_unretained`, which (for obejcts) results in dangling pointer once the referenced object deallocates.
-|`assign`|Synonym for `unsafe_unretained`. Suitable for non-object types.
-|`weak`|Backing ivar is synthesized using `__weak`, so the value will be nullified once the referenced object is deallocated.
-|`class`|Property accessors are synthesized as class methods, instead of instance methods. No backing storage is synthesized.
-|`nullable`|The property accepts `nil` values. Mainly used for Swift bridging.
-|`nonnull`|The property doesn’t accept `nil` values. Mainly used for Swift bridging.
-|`null_resettable`|The property accepts `nil` values  in setter, but never returns `nil` values from getter. Your custom implementation of getter or setter must ensure this behavior. Mainly used for Swift bridging.
-|`null_unspecified`|**Implicit.** The property doesn’t specify handling of `nil` values. Mainly used for Swift bridging.
+|`atomic`|**Implicit.** Enables synchronization in synthesized accessor methods.|2.0
+|`nonatomic`|Disables synchronization in the synthesized accessor methods.|2.0
+|`readwrite`|**Implicit.** Synthesizes getter, setter and backing ivar.|2.0
+|`readonly`|Synthesizes only the getter method and backing ivar, which can be assigned directly.|2.0
+|`getter=`**name**|Specifies the name of getter method, implicit is `propertyName`.|2.0
+|`setter=`**name**|Specifies the name of setter method, implicity is `setPropertyName:`. Colon `:` must be a part of the name.|2.0
+|`strong`|**Implicit for objects under ARC**. The backing ivar is synthesized using `__strong`, which prevents deallocation of referenced object.|**2.1**
+|`retain`|Synonym for `strong`.|2.0
+|`copy`|Same as `strong`, but the synthesized setter also calls `-copy` on the new value.|2.0
+|`unsafe_unretained`|**Implicit, except for objects under ARC.** The backing ivar is synthesized using `__unsafe_unretained`, which (for obejcts) results in dangling pointer once the referenced object deallocates.|**2.1**
+|`assign`|Synonym for `unsafe_unretained`. Suitable for non-object types.|2.0
+|`weak`|Backing ivar is synthesized using `__weak`, so the value will be nullified once the referenced object is deallocated.|**2.1, ARC only**
+|`class`|Property accessors are synthesized as class methods, instead of instance methods. No backing storage is synthesized.|???
+|`nullable`|The property accepts `nil` values. Mainly used for Swift bridging.|???
+|`nonnull`|The property doesn’t accept `nil` values. Mainly used for Swift bridging.|???
+|`null_resettable`|The property accepts `nil` values  in setter, but never returns `nil` values from getter. Your custom implementation of getter or setter must ensure this behavior. Mainly used for Swift bridging.|???
+|`null_unspecified`|**Implicit.** The property doesn’t specify handling of `nil` values. Mainly used for Swift bridging.|???
 
 ## Discussion
 
