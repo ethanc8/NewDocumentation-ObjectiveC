@@ -169,6 +169,8 @@ This release introduces some C99 features.
 * [Wikipedia article](https://en.wikipedia.org/wiki/Objective-C#Objective-C_2.0)
 * [Xcode 3.0 Release Notes](https://web.archive.org/web/20080517213700if_/http://developer.apple.com/releasenotes/DeveloperTools/RN-Xcode/index.html#//apple_ref/doc/uid/TP40001051-DontLinkElementID_2)
     * Objective-C has been enhanced with support for properties, fast enumeration, optional methods in protocols, and garbage collection.
+    * [What's New in Xcode 3.0 (PDF)](https://web.archive.org/web/20080303091141if_/http://developer.apple.com/documentation/DeveloperTools/Conceptual/WhatsNewXcode/WhatsNewXcode.pdf)
+      * doesn't seem relevant
 * [Objective-C 2.0 Release Notes](https://developer.apple.com/library/archive/releasenotes/Cocoa/RN-ObjectiveC/index.html#//apple_ref/doc/uid/TP40004309)
 * [Xcode 3.0 Advertisement](https://web.archive.org/web/20070629103804if_/http://www.apple.com/macosx/leopard/developer/xcode.html)
     * Enjoy modern garbage collection, syntax enhancements, runtime performance improvements, and 64-bit support.
@@ -194,13 +196,11 @@ This release introduces some C99 features.
 
 ARC, `@autoreleasepool`, completely private ivars
 
-
 * Automatic Reference Counting (ARC) and an improved memory model cleanly separating object and C memory.
 * A migration tool for moving manual retain/release code to ARC
 * Better support for data hiding, allowing instance variables to be declared in implementation contexts or class extensions
 * Weak linking support for Objective-C classes
 * Improved static type checking by inferring the return type of methods such as `+alloc` and `-init`.
-
 
 ### Resources
 
