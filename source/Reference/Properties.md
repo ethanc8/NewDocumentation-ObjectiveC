@@ -97,7 +97,7 @@ When declaring a property when contributing to GNUsteps, please define the gette
 
 - (void) setUserInterfaceLayoutDirection: (NSUserInterfaceLayoutDirection)dir
 {
-  _userInterfaceLayoutDirection = dir;
+  ASSIGN(_userInterfaceLayoutDirection, dir);
 }
 ```
 
