@@ -1,3 +1,4 @@
+% SPDX-License-Identifier: Apache-2.0 WITH Swift-exception
 > **Note**: The definitions shown here are not always the actual definitons and therefore might not compile.
 
 # `NS_ENUM` / `CF_ENUM`

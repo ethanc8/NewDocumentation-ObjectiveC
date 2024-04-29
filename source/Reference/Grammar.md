@@ -1,4 +1,5 @@
-# Grammardeclaration
+% SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+# Grammar
 
 As of Clang 15.0.5
 

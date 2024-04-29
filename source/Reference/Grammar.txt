@@ -1,3 +1,4 @@
+% SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 ///       external-declaration: [C99 6.9]
 /// [OBJC]  objc-class-definition

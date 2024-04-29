@@ -1,3 +1,4 @@
+% SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception WITH Swift-exception
 # Getting Environment Information
 
 ## Feature checking at runtime
