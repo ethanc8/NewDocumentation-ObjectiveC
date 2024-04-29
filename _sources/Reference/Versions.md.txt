@@ -1,3 +1,4 @@
+% SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception WITH Swift-exception
 # Language Versions
 
 > **Note**: Versions before Stepstone 4.0 are missing.

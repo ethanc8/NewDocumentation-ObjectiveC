@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="String literals" href="StringLiterals.html" /><link rel="prev" title="Properties" href="Properties.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.04.27 -->
         <title>Lightweight Generics - Objective-C 2.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=437aa6ec" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
@@ -113,6 +113,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -219,13 +221,13 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <section id="lightweight-generics">
-<h1>Lightweight Generics<a class="headerlink" href="#lightweight-generics" title="Permalink to this heading">#</a></h1>
+<h1>Lightweight Generics<a class="headerlink" href="#lightweight-generics" title="Permalink to this heading">¶</a></h1>
 <section id="availability">
-<h2>Availability<a class="headerlink" href="#availability" title="Permalink to this heading">#</a></h2>
+<h2>Availability<a class="headerlink" href="#availability" title="Permalink to this heading">¶</a></h2>
 <section id="compilers">
-<h3>Compilers<a class="headerlink" href="#compilers" title="Permalink to this heading">#</a></h3>
+<h3>Compilers<a class="headerlink" href="#compilers" title="Permalink to this heading">¶</a></h3>
 <p>“Objective-C 15 / 2.3”</p>
 <ul class="simple">
 <li><p>Clang &gt;= 3.7</p>
@@ -237,19 +239,19 @@
 </ul>
 </section>
 <section id="runtimes">
-<h3>Runtimes<a class="headerlink" href="#runtimes" title="Permalink to this heading">#</a></h3>
+<h3>Runtimes<a class="headerlink" href="#runtimes" title="Permalink to this heading">¶</a></h3>
 <p>No additional requirements.</p>
 </section>
 </section>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
 <p>Generics allow you to define types that operate on other types. For example, <code class="docutils literal notranslate"><span class="pre">NSArray</span></code> uses generics so that you can create an array holding only one element – for example you could create an array of cats.</p>
 </section>
 <section id="using-generic-classes">
-<h2>Using Generic Classes<a class="headerlink" href="#using-generic-classes" title="Permalink to this heading">#</a></h2>
+<h2>Using Generic Classes<a class="headerlink" href="#using-generic-classes" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="compatibility-macros">
-<h2>Compatibility Macros<a class="headerlink" href="#compatibility-macros" title="Permalink to this heading">#</a></h2>
+<h2>Compatibility Macros<a class="headerlink" href="#compatibility-macros" title="Permalink to this heading">¶</a></h2>
 <p>Since GCC does not support lightweight generics, these macros are used in GNUstep to support lightweight generics.</p>
 <p>These macros are provided by <a class="reference external" href="https://github.com/gnustep/libs-base/blob/9c129a1e7fb14d7fd352f45751a4c3379559bb97/Headers/Foundation/NSObjCRuntime.h#L208"><code class="docutils literal notranslate"><span class="pre">&lt;Foundation/NSObjCRuntime.h&gt;</span></code></a> on GNUstep. If you need to port to Cocoa, you can copy-paste these to a header in your code.</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="cp">#if __has_feature(objc_generics)</span>
@@ -288,7 +290,7 @@
 </div>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://web.archive.org/web/20150805010143if_/http://drekka.ghost.io/objective-c-generics/"><strong>Most in-depth article</strong></a></p></li>
 <li><p><a class="reference external" href="https://programmerall.com/article/1330578588/">Another article (bad grammar)</a></p></li>
@@ -329,7 +331,7 @@
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, Swift contributors, LLVM contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -379,7 +381,7 @@
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=5b92e3a5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>

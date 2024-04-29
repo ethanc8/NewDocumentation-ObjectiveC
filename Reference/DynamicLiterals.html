@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Fast enumeration" href="FastEnumeration.html" /><link rel="prev" title="String literals" href="StringLiterals.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.04.27 -->
         <title>Dynamic literals - Objective-C 2.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=437aa6ec" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
@@ -113,6 +113,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -219,12 +221,12 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <section id="dynamic-literals">
-<h1>Dynamic literals<a class="headerlink" href="#dynamic-literals" title="Permalink to this heading">#</a></h1>
+<h1>Dynamic literals<a class="headerlink" href="#dynamic-literals" title="Permalink to this heading">¶</a></h1>
 <p>From Clang’s documentation. Licensed under Apache 2.0.</p>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
 <p>Three new features were introduced into clang at the same time:
 <em>NSNumber Literals</em> provide a syntax for creating <code class="docutils literal notranslate"><span class="pre">NSNumber</span></code> from
 scalar literal expressions; <em>Collection Literals</em> provide a short-hand
@@ -240,7 +242,7 @@ container creation.</p>
 how to use them in your own programs.</p>
 </section>
 <section id="nsnumber-literals">
-<h2>NSNumber Literals<a class="headerlink" href="#nsnumber-literals" title="Permalink to this heading">#</a></h2>
+<h2>NSNumber Literals<a class="headerlink" href="#nsnumber-literals" title="Permalink to this heading">¶</a></h2>
 <p>The framework class <code class="docutils literal notranslate"><span class="pre">NSNumber</span></code> is used to wrap scalar values inside
 objects: signed and unsigned integers (<code class="docutils literal notranslate"><span class="pre">char</span></code>, <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>,
 <code class="docutils literal notranslate"><span class="pre">long</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code>), floating point numbers (<code class="docutils literal notranslate"><span class="pre">float</span></code>,
@@ -251,7 +253,7 @@ the <code class="docutils literal notranslate"><span class="pre">'&#64;'</span><
 object initialized with that value. C’s type suffixes may be used to
 control the size of numeric literals.</p>
 <section id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h3>
 <p>The following program illustrates the rules for <code class="docutils literal notranslate"><span class="pre">NSNumber</span></code> literals:</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// character literals.</span>
@@ -280,7 +282,7 @@ control the size of numeric literals.</p>
 </div>
 </section>
 <section id="discussion">
-<h3>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h3>
+<h3>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">¶</a></h3>
 <p>NSNumber literals only support literal scalar values after the <code class="docutils literal notranslate"><span class="pre">'&#64;'</span></code>.
 Consequently, <code class="docutils literal notranslate"><span class="pre">&#64;INT_MAX</span></code> works, but <code class="docutils literal notranslate"><span class="pre">&#64;INT_MIN</span></code> does not, because
 they are defined like this:</p>
@@ -317,7 +319,7 @@ are equivalent to <code class="docutils literal notranslate"><span class="pre">&
 </section>
 </section>
 <section id="boxed-expressions">
-<h2>Boxed Expressions<a class="headerlink" href="#boxed-expressions" title="Permalink to this heading">#</a></h2>
+<h2>Boxed Expressions<a class="headerlink" href="#boxed-expressions" title="Permalink to this heading">¶</a></h2>
 <p>Objective-C provides a new syntax for boxing C expressions:</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="l">@(</span><span class="w"> </span><span class="o">&lt;</span><span class="n">expression</span><span class="o">&gt;</span><span class="w"> </span><span class="l">)</span>
 </pre></div>
@@ -344,7 +346,7 @@ and some C structures (via NSValue) are supported:</p>
 </pre></div>
 </div>
 <section id="boxed-enums">
-<h3>Boxed Enums<a class="headerlink" href="#boxed-enums" title="Permalink to this heading">#</a></h3>
+<h3>Boxed Enums<a class="headerlink" href="#boxed-enums" title="Permalink to this heading">¶</a></h3>
 <p>Cocoa frameworks frequently define constant values using <em>enums.</em>
 Although enum values are integral, they may not be used directly as
 boxed literals (this avoids conflicts with future <code class="docutils literal notranslate"><span class="pre">'&#64;'</span></code>-prefixed
@@ -387,7 +389,7 @@ all the members of the enumeration:</p>
 </div>
 </section>
 <section id="boxed-c-strings">
-<h3>Boxed C Strings<a class="headerlink" href="#boxed-c-strings" title="Permalink to this heading">#</a></h3>
+<h3>Boxed C Strings<a class="headerlink" href="#boxed-c-strings" title="Permalink to this heading">¶</a></h3>
 <p>A C string literal prefixed by the <code class="docutils literal notranslate"><span class="pre">'&#64;'</span></code> token denotes an <code class="docutils literal notranslate"><span class="pre">NSString</span></code>
 literal in the same way a numeric literal prefixed by the <code class="docutils literal notranslate"><span class="pre">'&#64;'</span></code> token
 denotes an <code class="docutils literal notranslate"><span class="pre">NSNumber</span></code> literal. When the type of the parenthesized
@@ -416,7 +418,7 @@ raise an exception at runtime. When possible, the compiler will reject
 <code class="docutils literal notranslate"><span class="pre">NULL</span></code> character pointers used in boxed expressions.</p>
 </section>
 <section id="boxed-c-structures">
-<h3>Boxed C Structures<a class="headerlink" href="#boxed-c-structures" title="Permalink to this heading">#</a></h3>
+<h3>Boxed C Structures<a class="headerlink" href="#boxed-c-structures" title="Permalink to this heading">¶</a></h3>
 <p>Boxed expressions support construction of NSValue objects.
 It said that C structures can be used, the only requirement is:
 structure should be marked with <code class="docutils literal notranslate"><span class="pre">objc_boxable</span></code> attribute.
@@ -450,11 +452,11 @@ you may need to add the attribute via <code class="docutils literal notranslate"
 </section>
 </section>
 <section id="container-literals">
-<h2>Container Literals<a class="headerlink" href="#container-literals" title="Permalink to this heading">#</a></h2>
+<h2>Container Literals<a class="headerlink" href="#container-literals" title="Permalink to this heading">¶</a></h2>
 <p>Objective-C now supports a new expression syntax for creating immutable
 array and dictionary container objects.</p>
 <section id="id1">
-<h3>Examples<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3>Examples<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <p>Immutable array expression:</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="bp">NSArray</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="l">@[</span><span class="w"> </span><span class="s">@&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">NSApp</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="bp">NSNumber</span><span class="w"> </span><span class="n">numberWithInt</span><span class="o">:</span><span class="mi">42</span><span class="p">]</span><span class="w"> </span><span class="l">]</span><span class="p">;</span>
 </pre></div>
@@ -477,7 +479,7 @@ Objective-C object pointer type that implements the
 <code class="docutils literal notranslate"><span class="pre">&lt;NSCopying&gt;</span></code> protocol.</p>
 </section>
 <section id="id2">
-<h3>Discussion<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3>Discussion<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
 <p>Neither keys nor values can have the value <code class="docutils literal notranslate"><span class="pre">nil</span></code> in containers. If the
 compiler can prove that a key or value is <code class="docutils literal notranslate"><span class="pre">nil</span></code> at compile time, then
 a warning will be emitted. Otherwise, a runtime error will occur.</p>
@@ -495,11 +497,11 @@ all objects and keys, unlike
 </section>
 </section>
 <section id="object-subscripting">
-<h2>Object Subscripting<a class="headerlink" href="#object-subscripting" title="Permalink to this heading">#</a></h2>
+<h2>Object Subscripting<a class="headerlink" href="#object-subscripting" title="Permalink to this heading">¶</a></h2>
 <p>Objective-C object pointer values can now be used with C’s subscripting
 operator.</p>
 <section id="id3">
-<h3>Examples<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3>Examples<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
 <p>The following code demonstrates the use of object subscripting syntax
 with <code class="docutils literal notranslate"><span class="pre">NSMutableArray</span></code> and <code class="docutils literal notranslate"><span class="pre">NSMutableDictionary</span></code> objects:</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="bp">NSMutableArray</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span>
@@ -518,7 +520,7 @@ with <code class="docutils literal notranslate"><span class="pre">NSMutableArray
 methods.</p>
 </section>
 <section id="subscripting-methods">
-<h3>Subscripting Methods<a class="headerlink" href="#subscripting-methods" title="Permalink to this heading">#</a></h3>
+<h3>Subscripting Methods<a class="headerlink" href="#subscripting-methods" title="Permalink to this heading">¶</a></h3>
 <p>Objective-C supports two kinds of subscript expressions: <em>array-style</em>
 subscript expressions use integer typed subscripts; <em>dictionary-style</em>
 subscript expressions use Objective-C object pointer typed subscripts.
@@ -529,7 +531,7 @@ adopting protocols. Moreover, because the method names are selected by
 the type of the subscript, an object can be subscripted using both array
 and dictionary styles.</p>
 <section id="array-style-subscripting">
-<h4>Array-Style Subscripting<a class="headerlink" href="#array-style-subscripting" title="Permalink to this heading">#</a></h4>
+<h4>Array-Style Subscripting<a class="headerlink" href="#array-style-subscripting" title="Permalink to this heading">¶</a></h4>
 <p>When the subscript operand has an integral type, the expression is
 rewritten to use one of two different selectors, depending on whether
 the element is being read or written. When an expression reads an
@@ -573,7 +575,7 @@ to type-check; moreover, its subclass <code class="docutils literal notranslate"
 <code class="docutils literal notranslate"><span class="pre">setObject:atIndexedSubscript:</span></code>.</p>
 </section>
 <section id="dictionary-style-subscripting">
-<h4>Dictionary-Style Subscripting<a class="headerlink" href="#dictionary-style-subscripting" title="Permalink to this heading">#</a></h4>
+<h4>Dictionary-Style Subscripting<a class="headerlink" href="#dictionary-style-subscripting" title="Permalink to this heading">¶</a></h4>
 <p>When the subscript operand has an Objective-C object pointer type, the
 expression is rewritten to use one of two different selectors, depending
 on whether the element is being read from or written to. When an
@@ -603,7 +605,7 @@ No syntax is provided for removing elements from mutable dictionaries.</p>
 </section>
 </section>
 <section id="id4">
-<h3>Discussion<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<h3>Discussion<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
 <p>An Objective-C subscript expression occurs when the base operand of the
 C subscript operator has an Objective-C object pointer type. Since this
 potentially collides with pointer arithmetic on the value, these
@@ -631,7 +633,7 @@ declaration seen first.</p>
 </section>
 </section>
 <section id="caveats">
-<h2>Caveats<a class="headerlink" href="#caveats" title="Permalink to this heading">#</a></h2>
+<h2>Caveats<a class="headerlink" href="#caveats" title="Permalink to this heading">¶</a></h2>
 <p>Objects created using the literal or boxed expression syntax are not
 guaranteed to be uniqued by the runtime, but nor are they guaranteed to
 be newly-allocated. As such, the result of performing direct comparisons
@@ -647,7 +649,7 @@ you are using such code, please use global string constants instead
 (<code class="docutils literal notranslate"><span class="pre">NSString</span> <span class="pre">*</span> <span class="pre">const</span> <span class="pre">MyConst</span> <span class="pre">=</span> <span class="pre">&#64;&quot;...&quot;</span></code>) or use <code class="docutils literal notranslate"><span class="pre">isEqual:</span></code>.</p>
 </section>
 <section id="grammar-additions">
-<h2>Grammar Additions<a class="headerlink" href="#grammar-additions" title="Permalink to this heading">#</a></h2>
+<h2>Grammar Additions<a class="headerlink" href="#grammar-additions" title="Permalink to this heading">¶</a></h2>
 <p>To support the new syntax described above, the Objective-C
 <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>-expression grammar has the following new productions:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>objc-at-expression : &#39;@&#39; (string-literal | encode-literal | selector-literal | protocol-literal | object-literal)
@@ -684,7 +686,7 @@ key-value-pair : assignment-expression &#39;:&#39; assignment-expression
 <p>Note: <code class="docutils literal notranslate"><span class="pre">&#64;true</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;false</span></code> are only supported in Objective-C++.</p>
 </section>
 <section id="availability-checks">
-<h2>Availability Checks<a class="headerlink" href="#availability-checks" title="Permalink to this heading">#</a></h2>
+<h2>Availability Checks<a class="headerlink" href="#availability-checks" title="Permalink to this heading">¶</a></h2>
 <p>Programs test for the new features by using clang’s __has_feature
 checks. Here are examples of their use:</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="cp">#if __has_feature(objc_array_literals)</span>
@@ -778,7 +780,7 @@ availability of numeric literals support. This checks for the new
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, Swift contributors, LLVM contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -849,7 +851,7 @@ availability of numeric literals support. This checks for the new
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=5b92e3a5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>

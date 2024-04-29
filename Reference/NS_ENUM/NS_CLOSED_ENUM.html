@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="NS_ENUM / CF_ENUM" href="NS_ENUM.html" /><link rel="prev" title="NS_ENUM macros" href="index.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.04.27 -->
         <title>NS_CLOSED_ENUM / CF_CLOSED_ENUM - Objective-C 2.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=437aa6ec" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
@@ -113,6 +113,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -219,22 +221,22 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <blockquote>
 <div><p><strong>Note</strong>: The definitions shown here are not always the actual definitons and therefore might not compile.</p>
 </div></blockquote>
 <section id="ns-closed-enum-cf-closed-enum">
-<h1><code class="docutils literal notranslate"><span class="pre">NS_CLOSED_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_CLOSED_ENUM</span></code><a class="headerlink" href="#ns-closed-enum-cf-closed-enum" title="Permalink to this heading">#</a></h1>
+<h1><code class="docutils literal notranslate"><span class="pre">NS_CLOSED_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_CLOSED_ENUM</span></code><a class="headerlink" href="#ns-closed-enum-cf-closed-enum" title="Permalink to this heading">¶</a></h1>
 <p>Declares a frozen enum.</p>
 <section id="declaration">
-<h2>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading">#</a></h2>
+<h2>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="cp">#define NS_CLOSED_ENUM(_type, _name) CF_CLOSED_ENUM(_type, _name</span>
 <span class="cp">#define CF_CLOSED_ENUM(_type, _name) </span><span class="cm">/* ... */</span>
 </pre></div>
 </div>
 </section>
 <section id="parameters">
-<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">#</a></h2>
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><p>type name <strong><code class="docutils literal notranslate"><span class="pre">_type</span></code></strong><br />
 The integer type used for the values of the enum.</p>
@@ -245,11 +247,11 @@ The name of the generated typedef.</p>
 </div></blockquote>
 </section>
 <section id="equivalent-attributes">
-<h2>Equivalent attributes<a class="headerlink" href="#equivalent-attributes" title="Permalink to this heading">#</a></h2>
+<h2>Equivalent attributes<a class="headerlink" href="#equivalent-attributes" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://clang.llvm.org/docs/AttributeReference.html#enum-extensibility"><code class="docutils literal notranslate"><span class="pre">__attribute__((enum_extensibility(closed)))</span></code></a></p>
 </section>
 <section id="discussion">
-<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h2>
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">¶</a></h2>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">NS_CLOSED_ENUM</span></code> or <code class="docutils literal notranslate"><span class="pre">CF_CLOSED_ENUM</span></code> macro for a simple group of constants that you can never add new cases to. Closed enumerations are useful for representing a finite set of states that you expect people to switch over using a switch statement. Once an enum is marked as closed, it is a binary and source incompatible change to add a new value.</p>
 <p>The three cases of <code class="docutils literal notranslate"><span class="pre">NSComparisonResult</span></code>—<code class="docutils literal notranslate"><span class="pre">NSOrderedAscending</span></code>, <code class="docutils literal notranslate"><span class="pre">NSOrderedSame</span></code>, and <code class="docutils literal notranslate"><span class="pre">NSOrderedDescending</span></code>—are an example of a finite set. They’re the only logical cases for performing an ordered comparison during tasks like sorting.</p>
 <p>Don’t use the <code class="docutils literal notranslate"><span class="pre">NS_CLOSED_ENUM</span></code> or <code class="docutils literal notranslate"><span class="pre">CF_CLOSED_ENUM</span></code> macro if:</p>
@@ -261,7 +263,7 @@ The name of the generated typedef.</p>
 <p>In these scenarios, use the <code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> or <code class="docutils literal notranslate"><span class="pre">CF_ENUM</span></code> macro instead.</p>
 </section>
 <section id="importing-into-swift">
-<h2>Importing into Swift<a class="headerlink" href="#importing-into-swift" title="Permalink to this heading">#</a></h2>
+<h2>Importing into Swift<a class="headerlink" href="#importing-into-swift" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Swift &gt;= 5</p></li>
 </ul>
@@ -293,7 +295,7 @@ The name of the generated typedef.</p>
 <p>will cause a compiler warning because not all cases of the closed enum have been specified.</p>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://github.com/apple/swift-evolution/blob/master/proposals/0192-non-exhaustive-enums.md">Swift Evolution Proposal SE-0192 “Handling Future Enum Cases”</a></p>
 <p><a class="reference external" href="https://github.com/apple/swift-corelibs-foundation/blob/master/CoreFoundation/Base.subproj/CFAvailability.h"><code class="docutils literal notranslate"><span class="pre">&lt;CoreFoundation/CFAvailability.h&gt;</span></code></a><br />
 <a class="reference external" href="https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX11.3.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSObjCRuntime.h"><code class="docutils literal notranslate"><span class="pre">&lt;Foundation/NSObjCRuntime.h&gt;</span></code></a><br />
@@ -302,15 +304,9 @@ The name of the generated typedef.</p>
 <p><a class="reference external" href="https://www.swiftjectivec.com/ns_closed_enum/">Article on SwiftjectiveC.com</a></p>
 </section>
 <section id="documentation-copyright">
-<h2>Documentation copyright<a class="headerlink" href="#documentation-copyright" title="Permalink to this heading">#</a></h2>
+<h2>Documentation copyright<a class="headerlink" href="#documentation-copyright" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><p><strong>Note</strong>: This page uses a modified version of the documentation found in the CoreFoundation header files, which are licensed under Apache License v2.0 with Runtime Library Exception.</p>
-</div></blockquote>
-<blockquote>
-<div><p><strong>Note</strong>: This page also uses a modified version of the documentation found in the Apple Foundation header files, which are proprietary.</p>
-</div></blockquote>
-<blockquote>
-<div><p><strong>Note</strong>: This page also quotes from <a class="reference external" href="https://developer.apple.com/documentation/swift/objective-c_and_c_code_customization/grouping_related_objective-c_constants">“Grouping Related Objective-C Constants”</a>, which is proprietary.</p>
 </div></blockquote>
 <blockquote>
 <div><p><strong>Note</strong>: This page also quotes from Swift Evolution proposals, which are licensed under Apache License v2.0 with Runtime Library Exception.</p>
@@ -347,7 +343,7 @@ The name of the generated typedef.</p>
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, Swift contributors, LLVM contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -395,7 +391,7 @@ The name of the generated typedef.</p>
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=5b92e3a5"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=36754332"></script>

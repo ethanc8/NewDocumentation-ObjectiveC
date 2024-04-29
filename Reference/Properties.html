@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Lightweight Generics" href="LightweightGenerics.html" /><link rel="prev" title="Classes" href="Classes.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.04.27 -->
         <title>Properties - Objective-C 2.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=437aa6ec" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
@@ -113,6 +113,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -219,15 +221,15 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <!-- SPDX-License-Identifier: Apache-2.0 AND CC-BY-SA 3.0 
      Derived from Clang source and https://devtut.github.io/objectivec/properties.html -->
 <section id="properties">
-<h1>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h1>
+<h1>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">¶</a></h1>
 <section id="syntax">
-<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this heading">#</a></h2>
+<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this heading">¶</a></h2>
 <section id="property-declaration-and-implementation">
-<h3>Property declaration and implementation<a class="headerlink" href="#property-declaration-and-implementation" title="Permalink to this heading">#</a></h3>
+<h3>Property declaration and implementation<a class="headerlink" href="#property-declaration-and-implementation" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>&#64;property (<strong><a class="reference internal" href="#attributes">optional_attributes, …</a></strong>) <strong>type</strong> <strong>identifier</strong>;</p></li>
 <li><p>&#64;synthesize <strong>identifier</strong> = <strong>optional_backing_ivar</strong>;</p></li>
@@ -235,7 +237,7 @@
 </ul>
 </section>
 <section id="dot-syntax">
-<h3>Dot syntax<a class="headerlink" href="#dot-syntax" title="Permalink to this heading">#</a></h3>
+<h3>Dot syntax<a class="headerlink" href="#dot-syntax" title="Permalink to this heading">¶</a></h3>
 <p>Given an object <strong>myObject</strong> which has a property named <strong>size</strong>, you can:</p>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
@@ -261,13 +263,13 @@
 </section>
 </section>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
 <p>A property represents a piece of state kept by an object, that is accessed using getters and setters. <code class="docutils literal notranslate"><span class="pre">&#64;property</span></code> creates a <strong>declared property</strong>, which allows you to specify <a class="reference internal" href="#attributes">various attributes</a> about the property. However, the dot syntax is available even for undeclared properties, or even methods that aren’t properties. All you need to read a property is a method with the name of the property, and to write, you just need a method named <code class="docutils literal notranslate"><span class="pre">set</span></code> + property name + <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p>
 <p>You can <strong>synthesize</strong> a property from an ivar using <code class="docutils literal notranslate"><span class="pre">&#64;synthesize</span></code>. If you do not specify an ivar, it will automatically use an ivar with the same name as the property. If you are on a modern runtime with a non-fragile ABI (the Apple 64-bit runtime or GNUstep’s <code class="docutils literal notranslate"><span class="pre">libobjc2</span></code>), then <code class="docutils literal notranslate"><span class="pre">&#64;synthesize</span></code> will create the ivar for you if it is not already declared.</p>
 <p>Instead of synthesizing the property from the ivar, you can write a getter and a setter method. Just implement the methods that the dot syntax converts to.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;dynamic</span></code> tells the compiler that even though you didn’t implement the property, some kind of dynamic mechanism that the compiler doesn’t know about, such as message forwarding, swizzling, or categories in other files, will implement the property’s required methods. Only use this keyword if you know that the methods will be available before somebody tries to access the properties.</p>
 <section id="property-attributes">
-<span id="attributes"></span><h3>Property attributes<a class="headerlink" href="#property-attributes" title="Permalink to this heading">#</a></h3>
+<span id="attributes"></span><h3>Property attributes<a class="headerlink" href="#property-attributes" title="Permalink to this heading">¶</a></h3>
 <p>2.0 are supported by GCC &gt;= 4.6, Clang &gt;= 1.0, and Xcode &gt;= 3.0. 2.1 attributes are supported by Clang &gt;= 3.0 and Xcode &gt;= 4.2.</p>
 <p>The following attributes are equivalent:</p>
 <div class="table-wrapper colwidths-auto docutils container">
@@ -371,9 +373,9 @@
 </section>
 </section>
 <section id="discussion">
-<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h2>
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">¶</a></h2>
 <section id="gnustep-style">
-<h3>GNUstep style<a class="headerlink" href="#gnustep-style" title="Permalink to this heading">#</a></h3>
+<h3>GNUstep style<a class="headerlink" href="#gnustep-style" title="Permalink to this heading">¶</a></h3>
 <p>When declaring a property when contributing to GNUsteps, please define the getter and setter and use compilation guards to detect if the compiler supports properties. GNUstep needs to still work on very old versions of GCC.</p>
 <p><strong>Header file:</strong></p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="c1">// ivars</span>
@@ -402,7 +404,7 @@
 </div>
 </section>
 <section id="custom-getters-and-setters">
-<h3>Custom getters and setters<a class="headerlink" href="#custom-getters-and-setters" title="Permalink to this heading">#</a></h3>
+<h3>Custom getters and setters<a class="headerlink" href="#custom-getters-and-setters" title="Permalink to this heading">¶</a></h3>
 <p>The default property getters and setters can be overridden:</p>
 <div class="highlight-objectivec notranslate"><div class="highlight"><pre><span></span><span class="k">@interface</span> <span class="nc">TestClass</span>
 
@@ -458,7 +460,7 @@
 </div>
 </section>
 <section id="what-are-properties">
-<h3>What are properties?<a class="headerlink" href="#what-are-properties" title="Permalink to this heading">#</a></h3>
+<h3>What are properties?<a class="headerlink" href="#what-are-properties" title="Permalink to this heading">¶</a></h3>
 <p>Here is an example class which has a couple of instance variables, without using properties:</p>
 <div class="highlight-objectivec notranslate"><div class="highlight"><pre><span></span><span class="k">@interface</span> <span class="nc">TestClass</span> : <span class="bp">NSObject</span> <span class="p">{</span>
 <span class="w">    </span><span class="bp">NSString</span><span class="w"> </span><span class="o">*</span><span class="n">_someString</span><span class="p">;</span>
@@ -529,7 +531,7 @@
 </div>
 </section>
 <section id="properties-that-cause-updates">
-<h3>Properties that cause updates<a class="headerlink" href="#properties-that-cause-updates" title="Permalink to this heading">#</a></h3>
+<h3>Properties that cause updates<a class="headerlink" href="#properties-that-cause-updates" title="Permalink to this heading">¶</a></h3>
 <p>This object, <code class="docutils literal notranslate"><span class="pre">Shape</span></code> has a property <code class="docutils literal notranslate"><span class="pre">image</span></code> that depends on <code class="docutils literal notranslate"><span class="pre">numberOfSides</span></code> and <code class="docutils literal notranslate"><span class="pre">sideWidth</span></code>. If either one of them is set, than the <code class="docutils literal notranslate"><span class="pre">image</span></code> has to be recalculated. But recalculation is presumably long, and only needs to be done once if both properties are set, so the <code class="docutils literal notranslate"><span class="pre">Shape</span></code> provides a way to set both properties and only recalculate once. This is done by setting the property ivars directly.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">Shape.h</span></code></p>
 <div class="highlight-objectivec notranslate"><div class="highlight"><pre><span></span><span class="k">@interface</span> <span class="nc">Shape</span> <span class="p">{</span>
@@ -607,7 +609,7 @@
 </section>
 </section>
 <section id="grammar-from-clang-source">
-<h2>Grammar (from Clang source)<a class="headerlink" href="#grammar-from-clang-source" title="Permalink to this heading">#</a></h2>
+<h2>Grammar (from Clang source)<a class="headerlink" href="#grammar-from-clang-source" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>///   property-attr-decl: &#39;(&#39; property-attrlist &#39;)&#39;
 ///   property-attrlist:
 ///     property-attribute
@@ -653,7 +655,7 @@
 </div>
 </section>
 <section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjectiveC/Chapters/ocProperties.html#//apple_ref/doc/uid/TP30001163-CH17-SW1">Declared Properties - The Objective-C Programming Language</a> – very similar to a reference manual, deprecated</p></li>
 <li><p><a class="reference external" href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html#//apple_ref/doc/uid/TP40011210-CH5-SW2">Properties Encapsulate An Object’s Values - Programming with Objective-C</a> - more of a tutorial</p></li>
@@ -690,7 +692,7 @@
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, Swift contributors, LLVM contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -749,7 +751,7 @@
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=5b92e3a5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>

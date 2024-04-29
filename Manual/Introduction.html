@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="2.2 Objects" href="Objects.html" /><link rel="prev" title="Manual" href="index.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.04.27 -->
         <title>Introduction - Objective-C 2.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=437aa6ec" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
@@ -113,6 +113,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -219,14 +221,14 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h1>
 <p>The aim of this manual is to introduce you to the Objective-C languagey. The manual is organised to give you a tutorial introduction to the language, by using examples whenever possible, rather than providing a lengthy abstract description.</p>
 <p>While Objective-C is not a difficult language to learn or use, some of the terms may be unfamiliar, especially to those that have not programmed using an object-oriented programming language before. Whenever possible, concepts will be explained in simple terms rather than in more advanced programming terms, and comparisons to other languages will be used to aid in illustration.</p>
 <p><span id="What-is-Object_002dOriented-Programming_003f"></span></p>
 <section id="what-is-object-oriented-programming">
-<h2>1.1 What is Object-Oriented Programming?<a class="headerlink" href="#what-is-object-oriented-programming" title="Permalink to this heading">#</a></h2>
+<h2>1.1 What is Object-Oriented Programming?<a class="headerlink" href="#what-is-object-oriented-programming" title="Permalink to this heading">¶</a></h2>
 <p><span id="index-object_002doriented-programming"></span></p>
 <p>There are several object-oriented (OO) programming languages in common use today and you have probably heard of some of them: C++ and Java for example, and of course Objective-C. OO languages all have one thing in common: they allow you to design and write programs in a different way than if you used a traditional procedural language like C or Pascal.</p>
 <p>Procedural languages provide the programmer with basic building blocks that consist of data types, (integers, characters, float etc) and functions that act on that data. This forces the program designer to design the program using these same building blocks. Quite often this requires quite a leap in imagination between what the program must do and how it can be implemented.</p>
@@ -234,7 +236,7 @@
 <p>For example, an object may exist that can draw a rectangle in a window; all you need to do as a programmer is send the appropriate messages to that object. The messages could tell the object the size of the rectangle and position in the window, and of course tell the object to draw itself. Program design and implementation is now reduced to sending messages to the appropriate objects rather than calling functions to manipulate data.</p>
 <p><span id="Some-Basic-OO-Terminology"></span></p>
 <section id="some-basic-oo-terminology">
-<h3>1.1.1 Some Basic OO Terminology<a class="headerlink" href="#some-basic-oo-terminology" title="Permalink to this heading">#</a></h3>
+<h3>1.1.1 Some Basic OO Terminology<a class="headerlink" href="#some-basic-oo-terminology" title="Permalink to this heading">¶</a></h3>
 <p><span id="index-basic-OO-terminology"></span></p>
 <p>OO languages add to the vocabulary of more traditional programming languages, and it may help if you become familiar with some of the basic terms before jumping in to the language itself.</p>
 <p><strong>Objects</strong></p>
@@ -259,7 +261,7 @@
 </section>
 </section>
 <section id="what-is-objective-c">
-<h2>1.2 What is Objective-C?<a class="headerlink" href="#what-is-objective-c" title="Permalink to this heading">#</a></h2>
+<h2>1.2 What is Objective-C?<a class="headerlink" href="#what-is-objective-c" title="Permalink to this heading">¶</a></h2>
 <p><span id="index-what-is-Objective_002dC_003f"></span> <span id="index-Objective_002dC_002c-what-is_003f"></span></p>
 <p>Objective-C is a powerful object-oriented (OO) language that extends the procedural language ANSI C with the addition of a few keywords and compiler directives, plus one syntactical addition (for sending messages to objects). This simple extension of ANSI C is made possible by an Objective-C runtime library (libobjc) that is generally transparent to the Objective-C programmer.</p>
 <p>During compilation of Objective-C source code, OO extensions in the language compile to C function calls to the runtime library. It is the runtime library that makes dynamic typing and binding possible, and that makes Objective-C a true object-oriented language.</p>
@@ -284,7 +286,7 @@ The GNUstep **make** utility provides an alternative (and simple) way to compile
 <p><span id="History"></span></p>
 </section>
 <section id="history">
-<h2>1.3 History<a class="headerlink" href="#history" title="Permalink to this heading">#</a></h2>
+<h2>1.3 History<a class="headerlink" href="#history" title="Permalink to this heading">¶</a></h2>
 <p><span id="index-history-of-Objective_002dC"></span> <span id="index-Objective_002dC_002c-history"></span> <span id="index-history-of-NeXTstep"></span> <span id="index-NeXTstep_002c-history"></span> <span id="index-history-of-OpenStep"></span> <span id="index-OpenStep_002c-history"></span></p>
 <p>Objective-C was specified and first implemented by Brad Cox and his company Stepstone Corporation during the early 1980’s. They aimed to minimally incorporate the object-oriented features of Smalltalk-80 into C. Steve Jobs’s NeXT licensed Objective-C from StepStone in 1988 to serve as the foundation of the new NeXTstep development and operating environment. NeXT implemented its own compiler by building on the <em>gcc</em> compiler, modifications that were later contributed back to gcc in 1991. No less than three runtime libraries were subsequently written to serve as the GNU runtime; the one currently in use was developed by Danish university student Kresten Krab Thorup.</p>
 <p>Smalltalk-80 also included a class library, and Stepstone’s Objective-C implementation contained its own library based loosely on it. This in turn influenced the design of the NeXTstep class libraries, which are what GNUstep itself is ultimately based on.</p>
@@ -322,7 +324,7 @@ The GNUstep **make** utility provides an alternative (and simple) way to compile
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, Swift contributors, LLVM contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -369,7 +371,7 @@ The GNUstep **make** utility provides an alternative (and simple) way to compile
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=5b92e3a5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>

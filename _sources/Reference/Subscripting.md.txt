@@ -1,1 +1,2 @@
+% SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception WITH Swift-exception
 # Subscripting

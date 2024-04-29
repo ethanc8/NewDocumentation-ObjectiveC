@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Language Versions" href="Versions.html" /><link rel="prev" title="Modules" href="Modules.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.04.27 -->
         <title>Getting Environment Information - Objective-C 2.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=437aa6ec" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
@@ -113,6 +113,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -219,13 +221,13 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <section id="getting-environment-information">
-<h1>Getting Environment Information<a class="headerlink" href="#getting-environment-information" title="Permalink to this heading">#</a></h1>
+<h1>Getting Environment Information<a class="headerlink" href="#getting-environment-information" title="Permalink to this heading">¶</a></h1>
 <section id="feature-checking-at-runtime">
-<h2>Feature checking at runtime<a class="headerlink" href="#feature-checking-at-runtime" title="Permalink to this heading">#</a></h2>
+<h2>Feature checking at runtime<a class="headerlink" href="#feature-checking-at-runtime" title="Permalink to this heading">¶</a></h2>
 <section id="checking-for-class-existence">
-<h3>Checking for class existence<a class="headerlink" href="#checking-for-class-existence" title="Permalink to this heading">#</a></h3>
+<h3>Checking for class existence<a class="headerlink" href="#checking-for-class-existence" title="Permalink to this heading">¶</a></h3>
 <p>Use <a class="reference external" href="https://developer.apple.com/documentation/foundation/1395135-nsclassfromstring?language=objc"><code class="docutils literal notranslate"><span class="pre">NSClassFromString</span></code></a>.</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">NSClassFromString</span><span class="p">(</span><span class="s">@&quot;SomeClass&quot;</span><span class="p">))</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nil</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// Class exists</span>
@@ -236,7 +238,7 @@
 </div>
 </section>
 <section id="checking-if-a-class-or-object-implements-a-method">
-<h3>Checking if a class or object implements a method<a class="headerlink" href="#checking-if-a-class-or-object-implements-a-method" title="Permalink to this heading">#</a></h3>
+<h3>Checking if a class or object implements a method<a class="headerlink" href="#checking-if-a-class-or-object-implements-a-method" title="Permalink to this heading">¶</a></h3>
 <p>With the declarations:</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="k">@class</span> <span class="nc">Classname</span>;
 <span class="kt">SEL</span><span class="w"> </span><span class="n">selector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">@selector</span><span class="p">(...);</span>
@@ -259,9 +261,9 @@
 </section>
 </section>
 <section id="checking-versions-of-system-libraries-at-runtime">
-<h2>Checking versions of system libraries at runtime<a class="headerlink" href="#checking-versions-of-system-libraries-at-runtime" title="Permalink to this heading">#</a></h2>
+<h2>Checking versions of system libraries at runtime<a class="headerlink" href="#checking-versions-of-system-libraries-at-runtime" title="Permalink to this heading">¶</a></h2>
 <section id="corefoundation">
-<h3>CoreFoundation<a class="headerlink" href="#corefoundation" title="Permalink to this heading">#</a></h3>
+<h3>CoreFoundation<a class="headerlink" href="#corefoundation" title="Permalink to this heading">¶</a></h3>
 <p><strong>Header</strong>: <code class="docutils literal notranslate"><span class="pre">&lt;CoreFoundation/CFBase.h&gt;</span></code> - <a class="reference external" href="https://github.com/apple/swift-corelibs-foundation/blob/main/CoreFoundation/Base.subproj/CFBase.h">Apple</a> | <a class="reference external" href="https://github.com/gnustep/libs-corebase/blob/master/Headers/CoreFoundation/CFBase.h.in">GNUstep CoreBase</a><br />
 <strong>Official Documentation</strong>: <a class="reference external" href="https://developer.apple.com/documentation/corefoundation/base_utilities/framework_version_numbers?language=objc">Framework Version Numbers (outdated)</a><br />
 <strong>Introduced in</strong>: Mac OS X 10.1</p>
@@ -305,7 +307,7 @@
 </div>
 </section>
 <section id="foundation">
-<h3>Foundation<a class="headerlink" href="#foundation" title="Permalink to this heading">#</a></h3>
+<h3>Foundation<a class="headerlink" href="#foundation" title="Permalink to this heading">¶</a></h3>
 <p><strong>Header</strong>: <code class="docutils literal notranslate"><span class="pre">&lt;Foundation/NSObjCRuntime.h&gt;</span></code> - <a class="reference external" href="https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX11.3.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSObjCRuntime.h">Apple</a>
 <strong>Official Documentation</strong>: <a class="reference external" href="https://developer.apple.com/documentation/foundation/object_runtime/foundation_framework_version_numbers?language=objc">Framework Version Numbers</a><br />
 <strong>Introduced in</strong>: Mac OS X 10.1</p>
@@ -331,7 +333,7 @@
 </div></blockquote>
 </section>
 <section id="appkit">
-<h3>AppKit<a class="headerlink" href="#appkit" title="Permalink to this heading">#</a></h3>
+<h3>AppKit<a class="headerlink" href="#appkit" title="Permalink to this heading">¶</a></h3>
 <p><strong>Header</strong>: <code class="docutils literal notranslate"><span class="pre">&lt;AppKit/NSApplication.h&gt;</span></code> - <a class="reference external" href="https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX11.3.sdk/System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSApplication.h">Apple</a> | <a class="reference external" href="https://github.com/gnustep/libs-gui/blob/master/Headers/AppKit/NSApplication.h">GNUstep</a><br />
 <strong>Official Documentation</strong>: <a class="reference external" href="https://developer.apple.com/documentation/appkit/nsappkitversionnumber?language=objc">NSAppKitVersionNumber</a>
 <strong>Introduced in</strong>: Mac OS X 10.1</p>
@@ -356,23 +358,23 @@
 </section>
 </section>
 <section id="targetconditionals-h">
-<h2>TargetConditionals.h<a class="headerlink" href="#targetconditionals-h" title="Permalink to this heading">#</a></h2>
+<h2>TargetConditionals.h<a class="headerlink" href="#targetconditionals-h" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><p>This section quotes from the header files.</p>
 </div></blockquote>
 <section id="includes">
-<h3>Includes<a class="headerlink" href="#includes" title="Permalink to this heading">#</a></h3>
+<h3>Includes<a class="headerlink" href="#includes" title="Permalink to this heading">¶</a></h3>
 <p>For Clang with Apple SDKs:
 <a class="reference external" href="https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX11.3.sdk/usr/include/TargetConditionals.h"><code class="docutils literal notranslate"><span class="pre">&lt;TargetConditionals.h&gt;</span></code></a></p>
 <p>For CoreFoundation:
 <a class="reference external" href="https://github.com/apple/swift-corelibs-foundation/blob/main/CoreFoundation/Base.subproj/SwiftRuntime/TargetConditionals.h"><code class="docutils literal notranslate"><span class="pre">&lt;CoreFoundation/TargetConditionals.h&gt;</span></code></a></p>
 </section>
 <section id="defined-macros">
-<h3>Defined macros<a class="headerlink" href="#defined-macros" title="Permalink to this heading">#</a></h3>
+<h3>Defined macros<a class="headerlink" href="#defined-macros" title="Permalink to this heading">¶</a></h3>
 <p>Which macros are defined varies between SDK version. The macros documented at the top of the header file might not be defined the same way in the header itself.</p>
 </section>
 <section id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h3>
 <p>Detect building for iOS:</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="cp">#if (TARGET_OS_IPHONE) || (TARGET_IPHONE_SIMULATOR) || (TARGET_OS_IOS) || (TARGET_OS_SIMULATOR)</span>
 <span class="w">    </span><span class="p">...</span>
@@ -382,7 +384,7 @@
 </section>
 </section>
 <section id="id1">
-<h2><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 </section>
 </section>
 
@@ -415,7 +417,7 @@
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, Swift contributors, LLVM contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -474,7 +476,7 @@
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=5b92e3a5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>

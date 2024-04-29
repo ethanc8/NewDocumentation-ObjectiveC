@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Getting Environment Information" href="EnvInformation.html" /><link rel="prev" title="Traditional Message Forwarding" href="TraditionalMessageForwarding.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.04.27 -->
         <title>Modules - Objective-C 2.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=437aa6ec" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
@@ -113,6 +113,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -219,12 +221,12 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <section id="modules">
-<h1>Modules<a class="headerlink" href="#modules" title="Permalink to this heading">#</a></h1>
+<h1>Modules<a class="headerlink" href="#modules" title="Permalink to this heading">¶</a></h1>
 <p>From Clang’s documentation. Licensed under Apache v2.0.</p>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
 <p>Most software is built using a number of software libraries, including libraries supplied by the platform, internal libraries built as part of the software itself to provide structure, and third-party libraries. For each library, one needs to access both its interface (API) and its implementation. In the C family of languages, the interface to a library is accessed by including the appropriate header files(s):</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;SomeLib.h&gt;</span>
 </pre></div>
@@ -232,7 +234,7 @@
 <p>The implementation is handled separately by linking against the appropriate library. For example, by passing <code class="docutils literal notranslate"><span class="pre">-lSomeLib</span></code> to the linker.</p>
 <p>Modules provide an alternative, simpler way to use software libraries that provides better compile-time scalability and eliminates many of the problems inherent to using the C preprocessor to access the API of a library.</p>
 <section id="problems-with-the-current-model">
-<h3>Problems with the current model<a class="headerlink" href="#problems-with-the-current-model" title="Permalink to this heading">#</a></h3>
+<h3>Problems with the current model<a class="headerlink" href="#problems-with-the-current-model" title="Permalink to this heading">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">#include</span></code> mechanism provided by the C preprocessor is a very poor way to access the API of a library, for a number of reasons:</p>
 <ul class="simple">
 <li><p><strong>Compile-time scalability</strong>: Each time a header is included, the
@@ -282,7 +284,7 @@ written as part of the header file?</p></li>
 </ul>
 </section>
 <section id="semantic-import">
-<h3>Semantic import<a class="headerlink" href="#semantic-import" title="Permalink to this heading">#</a></h3>
+<h3>Semantic import<a class="headerlink" href="#semantic-import" title="Permalink to this heading">¶</a></h3>
 <p>Modules improve access to the API of software libraries by replacing the textual preprocessor inclusion model with a more robust, more efficient semantic model. From the user’s perspective, the code looks only slightly different, because one uses an <code class="docutils literal notranslate"><span class="pre">import</span></code> declaration rather than a <code class="docutils literal notranslate"><span class="pre">#include</span></code> preprocessor directive:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">import</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">io</span><span class="p">;</span><span class="w"> </span><span class="c1">// pseudo-code; see below for syntax discussion</span>
 </pre></div>
@@ -296,7 +298,7 @@ This semantic import model addresses many of the problems of the preprocessor in
 </ul>
 </section>
 <section id="problems-modules-do-not-solve">
-<h3>Problems modules do not solve<a class="headerlink" href="#problems-modules-do-not-solve" title="Permalink to this heading">#</a></h3>
+<h3>Problems modules do not solve<a class="headerlink" href="#problems-modules-do-not-solve" title="Permalink to this heading">¶</a></h3>
 <p>Many programming languages have a module or package system, and because of the variety of features provided by these languages it is important to define what modules do <em>not</em> do. In particular, all of the following are considered out-of-scope for modules:</p>
 <ul class="simple">
 <li><p><strong>Rewrite the world’s code</strong>: It is not realistic to require applications or software libraries to make drastic or non-backward-compatible changes, nor is it feasible to completely eliminate headers. Modules must interoperate with existing software libraries and allow a gradual transition.</p></li>
@@ -307,10 +309,10 @@ This semantic import model addresses many of the problems of the preprocessor in
 </section>
 </section>
 <section id="using-modules">
-<h2>Using Modules<a class="headerlink" href="#using-modules" title="Permalink to this heading">#</a></h2>
+<h2>Using Modules<a class="headerlink" href="#using-modules" title="Permalink to this heading">¶</a></h2>
 <p>To enable modules, pass the command-line flag <code class="docutils literal notranslate"><span class="pre">-fmodules</span></code>. This will make any modules-enabled software libraries available as modules as well as introducing any modules-specific syntax. Additional <a class="reference internal" href="#command-line-parameters">command-line parameters</a> are described in a separate section later.</p>
 <section id="objective-c-import-declaration">
-<h3>Objective-C Import declaration<a class="headerlink" href="#objective-c-import-declaration" title="Permalink to this heading">#</a></h3>
+<h3>Objective-C Import declaration<a class="headerlink" href="#objective-c-import-declaration" title="Permalink to this heading">¶</a></h3>
 <p>Objective-C provides syntax for importing a module via an <em>&#64;import declaration</em>, which imports the named module:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@import</span> <span class="n">std</span><span class="p">;</span>
 </pre></div>
@@ -325,7 +327,7 @@ will track the modules proposal in the C++ committee. See the section
 <a class="reference internal" href="#includes-as-imports">Includes as imports</a> to see how modules get imported today.</p>
 </section>
 <section id="includes-as-imports">
-<h3>Includes as imports<a class="headerlink" href="#includes-as-imports" title="Permalink to this heading">#</a></h3>
+<h3>Includes as imports<a class="headerlink" href="#includes-as-imports" title="Permalink to this heading">¶</a></h3>
 <p>The primary user-level feature of modules is the import operation, which provides access to the API of software libraries. However, today’s programs make extensive use of <code class="docutils literal notranslate"><span class="pre">#include</span></code>, and it is unrealistic to assume that all of this code will change overnight. Instead, modules automatically translate <code class="docutils literal notranslate"><span class="pre">#include</span></code> directives into the corresponding module import. For example, the include directive</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </pre></div>
@@ -349,7 +351,7 @@ directive is translated into an import, just like for a <code class="docutils li
 directive.``</p>
 </section>
 <section id="module-maps">
-<h3>Module maps<a class="headerlink" href="#module-maps" title="Permalink to this heading">#</a></h3>
+<h3>Module maps<a class="headerlink" href="#module-maps" title="Permalink to this heading">¶</a></h3>
 <p>The crucial link between modules and headers is described by a <em>module map</em>, which describes how a collection of existing headers maps on to the (logical) structure of a module. For example, one could imagine a module <code class="docutils literal notranslate"><span class="pre">std</span></code> covering the C standard library. Each of the C standard library headers (<code class="docutils literal notranslate"><span class="pre">&lt;stdio.h&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;stdlib.h&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;math.h&gt;</span></code>, etc.) would contribute to the <code class="docutils literal notranslate"><span class="pre">std</span></code> module, by placing their respective APIs into the corresponding submodule (<code class="docutils literal notranslate"><span class="pre">std.io</span></code>, <code class="docutils literal notranslate"><span class="pre">std.lib</span></code>, <code class="docutils literal notranslate"><span class="pre">std.math</span></code>, etc.). Having a list of the headers that are part of the <code class="docutils literal notranslate"><span class="pre">std</span></code> module allows the compiler to build the <code class="docutils literal notranslate"><span class="pre">std</span></code> module as a standalone entity, and having the mapping from header names to (sub)modules allows the automatic translation of <code class="docutils literal notranslate"><span class="pre">#include</span></code> directives to module imports.</p>
 <p>Module maps are specified as separate files (each named <code class="docutils literal notranslate"><span class="pre">module.modulemap</span></code>) alongside the headers they describe, which allows them to be added to existing software libraries without having to change the library headers themselves (in most cases <a class="footnote-reference brackets" href="#id6" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>). The actual <a class="reference internal" href="#module-map-language">Module map language</a> is described in a later section.</p>
 <div class="admonition note">
@@ -359,13 +361,13 @@ directive.``</p>
 <p>One can use module maps without modules to check the integrity of the use of header files. To do this, use the <code class="docutils literal notranslate"><span class="pre">-fimplicit-module-maps</span></code> option instead of the <code class="docutils literal notranslate"><span class="pre">-fmodules</span></code> option, or use <code class="docutils literal notranslate"><span class="pre">-fmodule-map-file=</span></code> option to explicitly specify the module map files to load.</p>
 </section>
 <section id="compilation-model">
-<h3>Compilation model<a class="headerlink" href="#compilation-model" title="Permalink to this heading">#</a></h3>
+<h3>Compilation model<a class="headerlink" href="#compilation-model" title="Permalink to this heading">¶</a></h3>
 <p>The binary representation of modules is automatically generated by the compiler on an as-needed basis. When a module is imported (e.g., by an <code class="docutils literal notranslate"><span class="pre">#include</span></code> of one of the module’s headers), the compiler will spawn a second instance of itself <a class="footnote-reference brackets" href="#id7" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>, with a fresh preprocessing context <a class="footnote-reference brackets" href="#id8" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, to parse just the headers in that module. The resulting Abstract Syntax Tree (AST) is then persisted into the binary representation of the module that is then loaded into translation unit where the module import was encountered.</p>
 <p>The binary representation of modules is persisted in the <em>module cache</em>. Imports of a module will first query the module cache and, if a binary representation of the required module is already available, will load that representation directly. Thus, a module’s headers will only be parsed once per language configuration, rather than once per translation unit that uses the module.</p>
 <p>Modules maintain references to each of the headers that were part of the module build. If any of those headers changes, or if any of the modules on which a module depends change, then the module will be (automatically) recompiled. The process should never require any user intervention.</p>
 </section>
 <section id="command-line-parameters">
-<h3>Command-line parameters<a class="headerlink" href="#command-line-parameters" title="Permalink to this heading">#</a></h3>
+<h3>Command-line parameters<a class="headerlink" href="#command-line-parameters" title="Permalink to this heading">¶</a></h3>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">-fmodules</span></code></dt><dd><p>Enable the modules feature.</p>
 </dd>
@@ -411,7 +413,7 @@ look for a matching implicit module in the prebuilt modules paths.</p>
 </dd>
 </dl>
 <section id="cc1-options">
-<h4>-cc1 Options<a class="headerlink" href="#cc1-options" title="Permalink to this heading">#</a></h4>
+<h4>-cc1 Options<a class="headerlink" href="#cc1-options" title="Permalink to this heading">¶</a></h4>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">-fmodules-strict-context-hash</span></code></dt><dd><p>Enables hashing of all compiler options that could impact the semantics of a
 module in an implicit build. This includes things such as header search paths
@@ -423,7 +425,7 @@ build.</p>
 </section>
 </section>
 <section id="using-prebuilt-modules">
-<h3>Using Prebuilt Modules<a class="headerlink" href="#using-prebuilt-modules" title="Permalink to this heading">#</a></h3>
+<h3>Using Prebuilt Modules<a class="headerlink" href="#using-prebuilt-modules" title="Permalink to this heading">¶</a></h3>
 <p>Below are a few examples illustrating uses of prebuilt modules via the different options.</p>
 <p>First, let’s set up files for our examples.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* A.h */</span>
@@ -518,7 +520,7 @@ clang<span class="w"> </span>-cc1<span class="w"> </span>-emit-obj<span class="w
 </section>
 </section>
 <section id="module-semantics">
-<h2>Module Semantics<a class="headerlink" href="#module-semantics" title="Permalink to this heading">#</a></h2>
+<h2>Module Semantics<a class="headerlink" href="#module-semantics" title="Permalink to this heading">¶</a></h2>
 <p>Modules are modeled as if each submodule were a separate translation unit, and a module import makes names from the other translation unit visible. Each submodule starts with a new preprocessor state and an empty translation unit.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -531,7 +533,7 @@ clang<span class="w"> </span>-cc1<span class="w"> </span>-emit-obj<span class="w
 </div>
 <p>If any submodule of a module is imported into any part of a program, the entire top-level module is considered to be part of the program. As a consequence of this, Clang may diagnose conflicts between an entity declared in an unimported submodule and an entity declared in the current translation unit, and Clang may inline or devirtualize based on knowledge from unimported submodules.</p>
 <section id="macros">
-<h3>Macros<a class="headerlink" href="#macros" title="Permalink to this heading">#</a></h3>
+<h3>Macros<a class="headerlink" href="#macros" title="Permalink to this heading">¶</a></h3>
 <p>The C and C++ preprocessor assumes that the input text is a single linear buffer, but with modules this is not the case. It is possible to import two modules that have conflicting definitions for a macro (or where one <code class="docutils literal notranslate"><span class="pre">#define</span></code>s a macro and the other <code class="docutils literal notranslate"><span class="pre">#undef</span></code>ines it). The rules for handling macro definitions in the presence of modules are as follows:</p>
 <ul class="simple">
 <li><p>Each definition and undefinition of a macro is considered to be a distinct entity.</p></li>
@@ -550,7 +552,7 @@ clang<span class="w"> </span>-cc1<span class="w"> </span>-emit-obj<span class="w
 </section>
 </section>
 <section id="module-map-language">
-<h2>Module Map Language<a class="headerlink" href="#module-map-language" title="Permalink to this heading">#</a></h2>
+<h2>Module Map Language<a class="headerlink" href="#module-map-language" title="Permalink to this heading">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The module map language is not currently guaranteed to be stable between major revisions of Clang.</p>
@@ -602,7 +604,7 @@ remove it.</p>
 </div>
 <p>Here, the top-level module <code class="docutils literal notranslate"><span class="pre">std</span></code> encompasses the whole C standard library. It has a number of submodules containing different parts of the standard library: <code class="docutils literal notranslate"><span class="pre">complex</span></code> for complex numbers, <code class="docutils literal notranslate"><span class="pre">ctype</span></code> for character types, etc. Each submodule lists one of more headers that provide the contents for that submodule. Finally, the <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">*</span></code> command specifies that anything included by that submodule will be automatically re-exported.</p>
 <section id="lexical-structure">
-<h3>Lexical structure<a class="headerlink" href="#lexical-structure" title="Permalink to this heading">#</a></h3>
+<h3>Lexical structure<a class="headerlink" href="#lexical-structure" title="Permalink to this heading">¶</a></h3>
 <p>Module map files use a simplified form of the C99 lexer, with the same rules for identifiers, tokens, string literals, <code class="docutils literal notranslate"><span class="pre">/*</span> <span class="pre">*/</span></code> and <code class="docutils literal notranslate"><span class="pre">//</span></code> comments. The module map language has the following reserved words; all other C identifiers are valid identifiers.</p>
 <pre class="literal-block"><code class="docutils literal notranslate"><span class="pre">config_macros</span></code> <code class="docutils literal notranslate"><span class="pre">export_as</span></code>  <code class="docutils literal notranslate"><span class="pre">private</span></code>
 <code class="docutils literal notranslate"><span class="pre">conflict</span></code>      <code class="docutils literal notranslate"><span class="pre">framework</span></code>  <code class="docutils literal notranslate"><span class="pre">requires</span></code>
@@ -612,7 +614,7 @@ remove it.</p>
 <code class="docutils literal notranslate"><span class="pre">export</span></code></pre>
 </section>
 <section id="module-map-file">
-<h3>Module map file<a class="headerlink" href="#module-map-file" title="Permalink to this heading">#</a></h3>
+<h3>Module map file<a class="headerlink" href="#module-map-file" title="Permalink to this heading">¶</a></h3>
 <p>A module map file consists of a series of module declarations:</p>
 <pre class="literal-block"><em>module-map-file</em>:
   <em>module-declaration*</em></pre>
@@ -621,7 +623,7 @@ remove it.</p>
   <em>identifier</em> ('.' <em>identifier</em>)*</pre>
 </section>
 <section id="module-declaration">
-<h3>Module declaration<a class="headerlink" href="#module-declaration" title="Permalink to this heading">#</a></h3>
+<h3>Module declaration<a class="headerlink" href="#module-declaration" title="Permalink to this heading">¶</a></h3>
 <p>A module declaration describes a module, including the headers that contribute to that module, its submodules, and other aspects of the module.</p>
 <pre class="literal-block"><em>module-declaration</em>:
   <code class="docutils literal notranslate"><span class="pre">explicit</span></code><sub>opt</sub> <code class="docutils literal notranslate"><span class="pre">framework</span></code><sub>opt</sub> <code class="docutils literal notranslate"><span class="pre">module</span></code> <em>module-id</em> <em>attributes</em><sub>opt</sub> '{' <em>module-member*</em> '}'
@@ -655,7 +657,7 @@ remove it.</p>
   <em>conflict-declaration</em></pre>
 <p>An extern module references a module defined by the <em>module-id</em> in a file given by the <em>string-literal</em>. The file can be referenced either by an absolute path or by a path relative to the current map file.</p>
 <section id="requires-declaration">
-<h4>Requires declaration<a class="headerlink" href="#requires-declaration" title="Permalink to this heading">#</a></h4>
+<h4>Requires declaration<a class="headerlink" href="#requires-declaration" title="Permalink to this heading">¶</a></h4>
 <p>A <em>requires-declaration</em> specifies the requirements that an importing translation unit must satisfy to use the module.</p>
 <pre class="literal-block"><em>requires-declaration</em>:
   <code class="docutils literal notranslate"><span class="pre">requires</span></code> <em>feature-list</em>
@@ -725,7 +727,7 @@ remove it.</p>
 </div>
 </section>
 <section id="header-declaration">
-<h4>Header declaration<a class="headerlink" href="#header-declaration" title="Permalink to this heading">#</a></h4>
+<h4>Header declaration<a class="headerlink" href="#header-declaration" title="Permalink to this heading">¶</a></h4>
 <p>A header declaration specifies that a particular header is associated with the enclosing module.</p>
 <pre class="literal-block"><em>header-declaration</em>:
   <code class="docutils literal notranslate"><span class="pre">private</span></code><sub>opt</sub> <code class="docutils literal notranslate"><span class="pre">textual</span></code><sub>opt</sub> <code class="docutils literal notranslate"><span class="pre">header</span></code> <em>string-literal</em> <em>header-attrs</em><sub>opt</sub>
@@ -776,7 +778,7 @@ mismatches between attribute values and the corresponding files.</p>
 </div>
 </section>
 <section id="umbrella-directory-declaration">
-<h4>Umbrella directory declaration<a class="headerlink" href="#umbrella-directory-declaration" title="Permalink to this heading">#</a></h4>
+<h4>Umbrella directory declaration<a class="headerlink" href="#umbrella-directory-declaration" title="Permalink to this heading">¶</a></h4>
 <p>An umbrella directory declaration specifies that all of the headers in the specified directory should be included within the module.</p>
 <pre class="literal-block"><em>umbrella-dir-declaration</em>:
   <code class="docutils literal notranslate"><span class="pre">umbrella</span></code> <em>string-literal</em></pre>
@@ -788,7 +790,7 @@ mismatches between attribute values and the corresponding files.</p>
 </div>
 </section>
 <section id="submodule-declaration">
-<h4>Submodule declaration<a class="headerlink" href="#submodule-declaration" title="Permalink to this heading">#</a></h4>
+<h4>Submodule declaration<a class="headerlink" href="#submodule-declaration" title="Permalink to this heading">¶</a></h4>
 <p>Submodule declarations describe modules that are nested within their enclosing module.</p>
 <pre class="literal-block"><em>submodule-declaration</em>:
   <em>module-declaration</em>
@@ -836,7 +838,7 @@ mismatches between attribute values and the corresponding files.</p>
 </div>
 </section>
 <section id="export-declaration">
-<h4>Export declaration<a class="headerlink" href="#export-declaration" title="Permalink to this heading">#</a></h4>
+<h4>Export declaration<a class="headerlink" href="#export-declaration" title="Permalink to this heading">¶</a></h4>
 <p>An <em>export-declaration</em> specifies which imported modules will automatically be re-exported as part of a given module’s API.</p>
 <pre class="literal-block"><em>export-declaration</em>:
   <code class="docutils literal notranslate"><span class="pre">export</span></code> <em>wildcard-module-id</em>
@@ -886,7 +888,7 @@ all of them).</p>
 </div>
 </section>
 <section id="re-export-declaration">
-<h4>Re-export Declaration<a class="headerlink" href="#re-export-declaration" title="Permalink to this heading">#</a></h4>
+<h4>Re-export Declaration<a class="headerlink" href="#re-export-declaration" title="Permalink to this heading">¶</a></h4>
 <p>An <em>export-as-declaration</em> specifies that the current module will have
 its interface re-exported by the named module.</p>
 <pre class="literal-block"><em>export-as-declaration</em>:
@@ -904,7 +906,7 @@ will be re-exported via the module <code class="docutils literal notranslate"><s
 </div>
 </section>
 <section id="use-declaration">
-<h4>Use declaration<a class="headerlink" href="#use-declaration" title="Permalink to this heading">#</a></h4>
+<h4>Use declaration<a class="headerlink" href="#use-declaration" title="Permalink to this heading">¶</a></h4>
 <p>A <em>use-declaration</em> specifies another module that the current top-level module
 intends to use. When the option <em>-fmodules-decluse</em> is specified, a module can
 only use other modules that are explicitly specified in this way.</p>
@@ -931,7 +933,7 @@ of that module.</p>
 <p>The compiler at present only applies restrictions to the module directly being built.</p>
 </section>
 <section id="link-declaration">
-<h4>Link declaration<a class="headerlink" href="#link-declaration" title="Permalink to this heading">#</a></h4>
+<h4>Link declaration<a class="headerlink" href="#link-declaration" title="Permalink to this heading">¶</a></h4>
 <p>A <em>link-declaration</em> specifies a library or framework against which a program should be linked if the enclosing module is imported in any translation unit in that program.</p>
 <pre class="literal-block"><em>link-declaration</em>:
   <code class="docutils literal notranslate"><span class="pre">link</span></code> <code class="docutils literal notranslate"><span class="pre">framework</span></code><sub>opt</sub> <em>string-literal</em></pre>
@@ -946,7 +948,7 @@ Studio’s <code class="docutils literal notranslate"><span class="pre">#pragma<
 </div>
 </section>
 <section id="configuration-macros-declaration">
-<h4>Configuration macros declaration<a class="headerlink" href="#configuration-macros-declaration" title="Permalink to this heading">#</a></h4>
+<h4>Configuration macros declaration<a class="headerlink" href="#configuration-macros-declaration" title="Permalink to this heading">¶</a></h4>
 <p>The <em>config-macros-declaration</em> specifies the set of configuration macros that have an effect on the API of the enclosing module.</p>
 <pre class="literal-block"><em>config-macros-declaration</em>:
   <code class="docutils literal notranslate"><span class="pre">config_macros</span></code> <em>attributes</em><sub>opt</sub> <em>config-macro-list</em><sub>opt</sub>
@@ -983,7 +985,7 @@ warning (under the control of <code class="docutils literal notranslate"><span c
 </div>
 </section>
 <section id="conflict-declarations">
-<h4>Conflict declarations<a class="headerlink" href="#conflict-declarations" title="Permalink to this heading">#</a></h4>
+<h4>Conflict declarations<a class="headerlink" href="#conflict-declarations" title="Permalink to this heading">¶</a></h4>
 <p>A <em>conflict-declaration</em> describes a case where the presence of two different modules in the same translation unit is likely to cause a problem. For example, two modules may provide similar-but-incompatible functionality.</p>
 <pre class="literal-block"><em>conflict-declaration</em>:
   <code class="docutils literal notranslate"><span class="pre">conflict</span></code> <em>module-id</em> ',' <em>string-literal</em></pre>
@@ -1010,7 +1012,7 @@ when a module conflict is discovered.</p>
 </section>
 </section>
 <section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">#</a></h3>
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h3>
 <p>Attributes are used in a number of places in the grammar to describe specific behavior of other declarations. The format of attributes is fairly simple.</p>
 <pre class="literal-block"><em>attributes</em>:
   <em>attribute</em> <em>attributes</em><sub>opt</sub>
@@ -1020,7 +1022,7 @@ when a module conflict is discovered.</p>
 <p>Any <em>identifier</em> can be used as an attribute, and each declaration specifies what attributes can be applied to it.</p>
 </section>
 <section id="private-module-map-files">
-<h3>Private Module Map Files<a class="headerlink" href="#private-module-map-files" title="Permalink to this heading">#</a></h3>
+<h3>Private Module Map Files<a class="headerlink" href="#private-module-map-files" title="Permalink to this heading">¶</a></h3>
 <p>Module map files are typically named <code class="docutils literal notranslate"><span class="pre">module.modulemap</span></code> and live
 either alongside the headers they describe or in a parent directory of
 the headers they describe. These module maps typically describe all of
@@ -1081,7 +1083,7 @@ trigger warnings and might not work as expected.</p></li>
 </section>
 </section>
 <section id="modularizing-a-platform">
-<h2>Modularizing a Platform<a class="headerlink" href="#modularizing-a-platform" title="Permalink to this heading">#</a></h2>
+<h2>Modularizing a Platform<a class="headerlink" href="#modularizing-a-platform" title="Permalink to this heading">¶</a></h2>
 <p>To get any benefit out of modules, one needs to introduce module maps for software libraries starting at the bottom of the stack. This typically means introducing a module map covering the operating system’s headers and the C standard library headers (in <code class="docutils literal notranslate"><span class="pre">/usr/include</span></code>, for a Unix system).</p>
 <p>The module maps will be written using the <a class="reference internal" href="#module-map-language">module map language</a>, which provides the tools necessary to describe the mapping between headers and modules. Because the set of headers differs from one system to the next, the module map will likely have to be somewhat customized for, e.g., a particular distribution and version of the operating system. Moreover, the system headers themselves may require some modification, if they exhibit any anti-patterns that break modules. Such common patterns are described below.</p>
 <dl>
@@ -1104,7 +1106,7 @@ trigger warnings and might not work as expected.</p></li>
 <p>To detect and help address some of these problems, the <code class="docutils literal notranslate"><span class="pre">clang-tools-extra</span></code> repository contains a <code class="docutils literal notranslate"><span class="pre">modularize</span></code> tool that parses a set of given headers and attempts to detect these problems and produce a report. See the tool’s in-source documentation for information on how to check your system or library headers.</p>
 </section>
 <section id="future-directions">
-<h2>Future Directions<a class="headerlink" href="#future-directions" title="Permalink to this heading">#</a></h2>
+<h2>Future Directions<a class="headerlink" href="#future-directions" title="Permalink to this heading">¶</a></h2>
 <p>Modules support is under active development, and there are many opportunities remaining to improve it. Here are a few ideas:</p>
 <dl class="simple">
 <dt><strong>Detect unused module imports</strong></dt><dd><p>Unlike with <code class="docutils literal notranslate"><span class="pre">#include</span></code> directives, it should be fairly simple to track whether a directly-imported module has ever been used. By doing so, Clang can emit <code class="docutils literal notranslate"><span class="pre">unused</span> <span class="pre">import</span></code> or <code class="docutils literal notranslate"><span class="pre">unused</span> <span class="pre">#include</span></code> diagnostics, including Fix-Its to remove the useless imports/includes.</p>
@@ -1116,7 +1118,7 @@ trigger warnings and might not work as expected.</p></li>
 </dl>
 </section>
 <section id="where-to-learn-more-about-modules">
-<h2>Where To Learn More About Modules<a class="headerlink" href="#where-to-learn-more-about-modules" title="Permalink to this heading">#</a></h2>
+<h2>Where To Learn More About Modules<a class="headerlink" href="#where-to-learn-more-about-modules" title="Permalink to this heading">¶</a></h2>
 <p>The Clang source code provides additional information about modules:</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">clang/lib/Headers/module.modulemap</span></code></dt><dd><p>Module map for Clang’s compiler-specific header files.</p>
@@ -1180,7 +1182,7 @@ trigger warnings and might not work as expected.</p></li>
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, Swift contributors, LLVM contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -1266,7 +1268,7 @@ trigger warnings and might not work as expected.</p></li>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=5b92e3a5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>

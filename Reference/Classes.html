@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Properties" href="Properties.html" /><link rel="prev" title="Basic Types" href="BasicTypes.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.04.27 -->
         <title>Classes - Objective-C 2.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=437aa6ec" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
@@ -113,6 +113,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -219,21 +221,21 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <section id="classes">
-<h1>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h1>
+<h1>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h1>
 <p>Classes allow the programmer to define types which can be messaged, can create objects, and are polymorphic.</p>
 <blockquote>
 <div><p><strong>Note</strong>: This document quotes from https://en.cppreference.com/w/c/language/struct, dual-licensed under the CC-BY-SA 3.0 and unversioned GFDL with no invariant sections, front-cover texts, or back-cover texts.</p>
 </div></blockquote>
 <section id="forward-declaration">
-<h2>Forward declaration<a class="headerlink" href="#forward-declaration" title="Permalink to this heading">#</a></h2>
+<h2>Forward declaration<a class="headerlink" href="#forward-declaration" title="Permalink to this heading">¶</a></h2>
 <section id="grammar-summary">
-<h3>Grammar summary<a class="headerlink" href="#grammar-summary" title="Permalink to this heading">#</a></h3>
+<h3>Grammar summary<a class="headerlink" href="#grammar-summary" title="Permalink to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;class</span></code> <em>name</em> (<code class="docutils literal notranslate"><span class="pre">,</span></code> <em>name</em>)*<sub>opt</sub> <code class="docutils literal notranslate"><span class="pre">;</span></code></p>
 </section>
 <section id="grammar">
-<h3>Grammar<a class="headerlink" href="#grammar" title="Permalink to this heading">#</a></h3>
+<h3>Grammar<a class="headerlink" href="#grammar" title="Permalink to this heading">¶</a></h3>
 <p>objc-class-declaration:
 : <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> <code class="docutils literal notranslate"><span class="pre">class</span></code> objc-class-forward-decl (<code class="docutils literal notranslate"><span class="pre">,</span></code> objc-class-forward-decl)* <code class="docutils literal notranslate"><span class="pre">;</span></code></p>
 <p>objc-class-forward-decl:
@@ -249,7 +251,7 @@
 : <code class="docutils literal notranslate"><span class="pre">__contravariant</span></code></p>
 </section>
 <section id="discussion">
-<h3>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h3>
+<h3>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">¶</a></h3>
 <p>This declares that a class with the name <em>name</em> exists. After this, the type <em>name</em> is now defined.</p>
 <p>This works similary to forward-declaring a struct, but you cannot use the keyword <code class="docutils literal notranslate"><span class="pre">&#64;class</span></code> outside of a forward-declaration.</p>
 <blockquote>
@@ -264,7 +266,7 @@
 </section>
 </section>
 <section id="class-interface">
-<h2>Class interface<a class="headerlink" href="#class-interface" title="Permalink to this heading">#</a></h2>
+<h2>Class interface<a class="headerlink" href="#class-interface" title="Permalink to this heading">¶</a></h2>
 <p>[ <em>attr-spec-seq</em> ]<br />
 <code class="docutils literal notranslate"><span class="pre">&#64;interface</span></code> <em>name</em> [ <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> <em>generic-param</em> <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> ] [ <code class="docutils literal notranslate"><span class="pre">:</span></code> <em>superclass-name</em> ] [ <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> <em>protocol-list</em> <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> ]<br />
 [ <code class="docutils literal notranslate"><span class="pre">{</span></code> <em>ivar-declaration-list</em> <code class="docutils literal notranslate"><span class="pre">}</span></code> ]<br />
@@ -297,13 +299,13 @@ A list of method declarations. See <a class="reference internal" href="#More"><s
 </div></blockquote>
 </section>
 <section id="class-implementation">
-<h2>Class implementation<a class="headerlink" href="#class-implementation" title="Permalink to this heading">#</a></h2>
+<h2>Class implementation<a class="headerlink" href="#class-implementation" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="methods">
-<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h2>
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="class-names-in-code">
-<h2>Class names in code<a class="headerlink" href="#class-names-in-code" title="Permalink to this heading">#</a></h2>
+<h2>Class names in code<a class="headerlink" href="#class-names-in-code" title="Permalink to this heading">¶</a></h2>
 <p>You can use the name of a class in code as either a type name followed by a <code class="docutils literal notranslate"><span class="pre">*</span></code>, or an object to send a message to.</p>
 <p>GOOD:</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="bp">NSString</span><span class="o">*</span><span class="w"> </span><span class="n">myString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="bp">NSString</span><span class="w"> </span><span class="n">alloc</span><span class="p">]</span><span class="w"> </span><span class="n">init</span><span class="p">];</span>
@@ -351,7 +353,7 @@ A list of method declarations. See <a class="reference internal" href="#More"><s
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, Swift contributors, LLVM contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -402,7 +404,7 @@ A list of method declarations. See <a class="reference internal" href="#More"><s
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=5b92e3a5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>

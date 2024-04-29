@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Exceptions" href="Exceptions.html" /><link rel="prev" title="Dynamic literals" href="DynamicLiterals.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.04.27 -->
         <title>Fast enumeration - Objective-C 2.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=437aa6ec" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
@@ -113,6 +113,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -219,13 +221,13 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <section id="fast-enumeration">
-<h1>Fast enumeration<a class="headerlink" href="#fast-enumeration" title="Permalink to this heading">#</a></h1>
+<h1>Fast enumeration<a class="headerlink" href="#fast-enumeration" title="Permalink to this heading">¶</a></h1>
 <section id="availability">
-<h2>Availability<a class="headerlink" href="#availability" title="Permalink to this heading">#</a></h2>
+<h2>Availability<a class="headerlink" href="#availability" title="Permalink to this heading">¶</a></h2>
 <section id="compilers">
-<h3>Compilers<a class="headerlink" href="#compilers" title="Permalink to this heading">#</a></h3>
+<h3>Compilers<a class="headerlink" href="#compilers" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Clang &gt;= 2.0</p>
 <ul>
@@ -247,7 +249,7 @@
 </div></blockquote>
 </section>
 <section id="sdks-targets">
-<h3>SDKs / Targets<a class="headerlink" href="#sdks-targets" title="Permalink to this heading">#</a></h3>
+<h3>SDKs / Targets<a class="headerlink" href="#sdks-targets" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Mac OS X &gt;= 10.5 Leopard</p></li>
 <li><p>iOS &gt;= 3.0 (first iOS version with an SDK)</p></li>
@@ -259,7 +261,7 @@
 </section>
 </section>
 <section id="feature-description">
-<h2>Feature description<a class="headerlink" href="#feature-description" title="Permalink to this heading">#</a></h2>
+<h2>Feature description<a class="headerlink" href="#feature-description" title="Permalink to this heading">¶</a></h2>
 <p>New <code class="docutils literal notranslate"><span class="pre">for</span></code> loop syntax:</p>
 <p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">(</span></code> <em>init-clause</em> <code class="docutils literal notranslate"><span class="pre">in</span></code> <em>fast-enumerator</em> <code class="docutils literal notranslate"><span class="pre">)</span></code> <em>loop-statement</em></p>
 <p><em>init-clause</em> is an expression or declaration.<br />
@@ -269,7 +271,7 @@
 <p>Otherwise, behavior is identical to a C for loop.</p>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://gcc.gnu.org/onlinedocs/gcc/Fast-enumeration.html">GCC documentation</a></p>
 <p><a class="reference external" href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjectiveC/Chapters/ocFastEnumeration.html"><em>The Objective-C Programming Language</em>, “Fast Enumeration”</a></p>
 <p><a class="reference external" href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/FoundationTypesandCollections/FoundationTypesandCollections.html#//apple_ref/doc/uid/TP40011210-CH7-SW30"><em>Programming with Objective-C</em>, “Fast Enumeration…”</a></p>
@@ -277,7 +279,7 @@
 <p><a class="reference external" href="https://nshipster.com/enumerators/">NSHipster article</a></p>
 </section>
 <section id="nsfastenumeration-protocol">
-<h2><code class="docutils literal notranslate"><span class="pre">NSFastEnumeration</span></code> protocol<a class="headerlink" href="#nsfastenumeration-protocol" title="Permalink to this heading">#</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">NSFastEnumeration</span></code> protocol<a class="headerlink" href="#nsfastenumeration-protocol" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">id</span><span class="w"> </span><span class="o">*</span><span class="n">itemsPtr</span><span class="p">;</span>
@@ -294,7 +296,7 @@
 </div>
 <p>For more information, see <a class="reference external" href="https://www.mikeash.com/pyblog/friday-qa-2010-04-16-implementing-fast-enumeration.html">Mike Ash’s blog post on implementing NSFastEnumeration</a>.</p>
 <section id="id1">
-<h3>References<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3>References<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <p><a class="reference external" href="https://developer.apple.com/documentation/foundation/nsfastenumeration?language=objc">Apple documentation</a></p>
 <p><a class="reference external" href="https://gcc.gnu.org/onlinedocs/gcc/Fast-enumeration-protocol.html">GCC documentation</a></p>
 <p><a class="reference external" href="https://www.mikeash.com/pyblog/friday-qa-2010-04-16-implementing-fast-enumeration.html">Mike Ash’s blog post on implementing NSFastEnumeration</a></p>
@@ -331,7 +333,7 @@
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, Swift contributors, LLVM contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -383,7 +385,7 @@
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=5b92e3a5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>

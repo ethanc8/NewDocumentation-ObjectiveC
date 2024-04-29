@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Modules" href="Modules.html" /><link rel="prev" title="NS_ERROR_ENUM / CF_ERROR_ENUM" href="NS_ENUM/NS_ERROR_ENUM.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.04.27 -->
         <title>Traditional Message Forwarding - Objective-C 2.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=437aa6ec" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
@@ -113,6 +113,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -219,11 +221,11 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <section id="traditional-message-forwarding">
-<h1>Traditional Message Forwarding<a class="headerlink" href="#traditional-message-forwarding" title="Permalink to this heading">#</a></h1>
+<h1>Traditional Message Forwarding<a class="headerlink" href="#traditional-message-forwarding" title="Permalink to this heading">¶</a></h1>
 <section id="gcc-runtime">
-<h2>GCC runtime<a class="headerlink" href="#gcc-runtime" title="Permalink to this heading">#</a></h2>
+<h2>GCC runtime<a class="headerlink" href="#gcc-runtime" title="Permalink to this heading">¶</a></h2>
 <p>Taken from GCC’s <a class="reference external" href="https://github.com/gcc-mirror/gcc/blob/16e2427f50c208dfe07d07f18009969502c25dc8/libobjc/objc/message.h"><code class="docutils literal notranslate"><span class="pre">&lt;objc/message.h&gt;</span></code></a>.</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="kt">IMP</span><span class="w"> </span><span class="nf">objc_msg_lookup</span><span class="w"> </span><span class="p">(</span><span class="kt">id</span><span class="w"> </span><span class="n">receiver</span><span class="p">,</span><span class="w"> </span><span class="kt">SEL</span><span class="w"> </span><span class="n">op</span><span class="p">);</span>
 </pre></div>
@@ -256,24 +258,24 @@ problems.  <code class="docutils literal notranslate"><span class="pre">__objc_m
 of <code class="docutils literal notranslate"><span class="pre">__objc_msg_forward</span></code> if both are set and return non-NULL.</p>
 </section>
 <section id="apple-next-runtime">
-<h2>Apple/NeXT runtime<a class="headerlink" href="#apple-next-runtime" title="Permalink to this heading">#</a></h2>
+<h2>Apple/NeXT runtime<a class="headerlink" href="#apple-next-runtime" title="Permalink to this heading">¶</a></h2>
 <p>The forward handler is set by the function <code class="docutils literal notranslate"><span class="pre">objc_setForwardHandler</span></code>. The default forward handler in Objective-C 1.x is <code class="docutils literal notranslate"><span class="pre">nil</span></code>. The runtime, if it detects a forward handler of <code class="docutils literal notranslate"><span class="pre">nil</span></code>, will call <code class="docutils literal notranslate"><span class="pre">forward::</span></code> on the object. In Objective-C 2.x, the default forward handler prints a message detailing the error and exits the program.</p>
 </section>
 <section id="objc-setforwardhandler">
-<h2><code class="docutils literal notranslate"><span class="pre">objc_setForwardHandler</span></code><a class="headerlink" href="#objc-setforwardhandler" title="Permalink to this heading">#</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">objc_setForwardHandler</span></code><a class="headerlink" href="#objc-setforwardhandler" title="Permalink to this heading">¶</a></h2>
 <p>Sets the function to be called by <code class="docutils literal notranslate"><span class="pre">objc_msgForward</span></code>.</p>
 <p>Defined in <code class="docutils literal notranslate"><span class="pre">&lt;objc/runtime.h&gt;</span></code>.</p>
 <section id="declaration">
-<h3>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading">#</a></h3>
+<h3>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">objc_setForwardHandler</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">_Nonnull</span><span class="w"> </span><span class="n">fwd</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">_Nonnull</span><span class="w"> </span><span class="n">fwd_stret</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
 <section id="paramaters">
-<h3>Paramaters<a class="headerlink" href="#paramaters" title="Permalink to this heading">#</a></h3>
+<h3>Paramaters<a class="headerlink" href="#paramaters" title="Permalink to this heading">¶</a></h3>
 </section>
 <section id="code-snippets">
-<h3>Code snippets<a class="headerlink" href="#code-snippets" title="Permalink to this heading">#</a></h3>
+<h3>Code snippets<a class="headerlink" href="#code-snippets" title="Permalink to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">&lt;objc/message.h&gt;</span></code></p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Message Forwarding Primitives</span>
 <span class="cm"> * Use these functions to forward a message as if the receiver did not </span>
@@ -358,12 +360,12 @@ of <code class="docutils literal notranslate"><span class="pre">__objc_msg_forwa
 </section>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="http://www.cilinder.be/docs/next/NeXTStep/3.3/nd/GeneralRef/01_RootClass/Classes/Object.htmld/index.html">NeXT Release 3.3 documentation for <code class="docutils literal notranslate"><span class="pre">Object</span></code> class</a></p>
 <p><a class="reference external" href="http://www.cilinder.be/docs/next/NeXTStep/3.3/nd/GeneralRef/15_RunTime/Functions/RunTimeFunctions.htmld/index.html">NeXT Release 3.3 documentation for runtime functions</a></p>
 <p><a class="reference external" href="http://web.archive.org/web/20140115122206if_/http://lists.apple.com/archives/objc-language/2007/Oct/msg00036.html">Re: <code class="docutils literal notranslate"><span class="pre">objc_setForwardHandler</span></code></a></p>
 <section id="apple-objective-c-runtime-source-code-version-818-2">
-<h3>Apple Objective-C runtime source code (version 818.2)<a class="headerlink" href="#apple-objective-c-runtime-source-code-version-818-2" title="Permalink to this heading">#</a></h3>
+<h3>Apple Objective-C runtime source code (version 818.2)<a class="headerlink" href="#apple-objective-c-runtime-source-code-version-818-2" title="Permalink to this heading">¶</a></h3>
 <p><a class="reference external" href="https://opensource.apple.com/source/objc4/objc4-818.2/runtime/runtime.h.auto.html"><code class="docutils literal notranslate"><span class="pre">&lt;objc/runtime.h&gt;</span></code></a></p>
 <p><a class="reference external" href="https://opensource.apple.com/source/objc4/objc4-818.2/runtime/message.h.auto.html"><code class="docutils literal notranslate"><span class="pre">&lt;objc/message.h&gt;</span></code></a></p>
 <p><a class="reference external" href="https://opensource.apple.com/source/objc4/objc4-818.2/runtime/objc-runtime.mm"><code class="docutils literal notranslate"><span class="pre">objc-runtime.mm</span></code></a></p>
@@ -400,7 +402,7 @@ of <code class="docutils literal notranslate"><span class="pre">__objc_msg_forwa
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, Swift contributors, LLVM contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -453,7 +455,7 @@ of <code class="docutils literal notranslate"><span class="pre">__objc_msg_forwa
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=5b92e3a5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>

@@ -1,3 +1,4 @@
+% SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception WITH Swift-exception AND CC-BY-SA 3.0
 <!-- SPDX-License-Identifier: Apache-2.0 AND CC-BY-SA 3.0 
      Derived from Clang source and https://devtut.github.io/objectivec/properties.html -->
 

@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.04.27 -->
         <title>2 The Objective-C Language - Objective-C 2.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=437aa6ec" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
@@ -113,6 +113,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -219,16 +221,16 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <p><span id="Objective_002dC"></span></p>
 <p>Next: <a class="reference internal" href="#Objects.html"><span class="xref myst">Objects</span></a>, Previous: <a class="reference internal" href="#Introduction.html"><span class="xref myst">Introduction</span></a>, Up: <a class="reference internal" href="#index.html"><span class="xref myst">Top</span></a>   [<a class="reference internal" href="#index.html#SEC_Contents"><span class="xref myst">Contents</span></a>][<a class="reference internal" href="#Make.html"><span class="xref myst">Index</span></a>]</p>
 <p><span id="The-Objective_002dC-Language"></span></p>
 <section id="the-objective-c-language">
-<h1>2 The Objective-C Language<a class="headerlink" href="#the-objective-c-language" title="Permalink to this heading">#</a></h1>
+<h1>2 The Objective-C Language<a class="headerlink" href="#the-objective-c-language" title="Permalink to this heading">¶</a></h1>
 <p>In the previous chapter you were introduced to some basic object-oriented programming terms. This chapter will expand on these terms, and introduce you to some new ones, while concentrating on how they apply to the Objective-C language and the GNUstep base library. First let us look at some non OO additions that Objective-C makes to ANSI C.</p>
 <p><span id="Non-OO-Additions"></span></p>
 <section id="non-oo-additions">
-<h2>2.1 Non OO Additions<a class="headerlink" href="#non-oo-additions" title="Permalink to this heading">#</a></h2>
+<h2>2.1 Non OO Additions<a class="headerlink" href="#non-oo-additions" title="Permalink to this heading">¶</a></h2>
 <p>Objective-C makes a few non OO additions to the syntax of the C programming language that include:</p>
 <ul class="simple">
 <li><p>A boolean data type (<code class="docutils literal notranslate"><span class="pre">BOOL</span></code>) capable of storing either of the values <code class="docutils literal notranslate"><span class="pre">YES</span></code> or <code class="docutils literal notranslate"><span class="pre">NO</span></code>.<br />
@@ -240,7 +242,7 @@ A <code class="docutils literal notranslate"><span class="pre">BOOL</span></code
 <p><span id="Objects-1"></span></p>
 </section>
 <section id="objects">
-<h2>2.2 Objects<a class="headerlink" href="#objects" title="Permalink to this heading">#</a></h2>
+<h2>2.2 Objects<a class="headerlink" href="#objects" title="Permalink to this heading">¶</a></h2>
 <p><span id="index-objects"></span></p>
 <p>Object-oriented (OO) programming is based on the notion that a software system can be composed of objects that interact with each other in a manner that parallels the interaction of objects in the physical world.</p>
 <p>This model makes it easier for the programmer to understand how software works since it makes programming more intuitive. The use of objects also makes it easier during program design: take a big problem and consider it in small pieces, the individual objects, and how they relate to each other.</p>
@@ -255,7 +257,7 @@ A <code class="docutils literal notranslate"><span class="pre">BOOL</span></code
 <p>Rather than ’calling’ one of its methods, an object is said to ’perform’ one of its methods in response to a message. The format that a message can take is discussed later in this section.</p>
 <p><span id="Id-and-nil"></span></p>
 <section id="id-and-nil">
-<h3>2.2.1 Id and nil<a class="headerlink" href="#id-and-nil" title="Permalink to this heading">#</a></h3>
+<h3>2.2.1 Id and nil<a class="headerlink" href="#id-and-nil" title="Permalink to this heading">¶</a></h3>
 <p>Objective-C defines a new type to identify an object: <code class="docutils literal notranslate"><span class="pre">id</span></code>, a type that points to an object’s data (its instance variables). The following code declares the variable ’<code class="docutils literal notranslate"><span class="pre">button</span></code>’ as an object (as opposed to ’<code class="docutils literal notranslate"><span class="pre">button</span></code>’ being declared an integer, character or some other data type).</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>id button;
 </pre></div>
@@ -277,7 +279,7 @@ else
 <p><span id="Messages"></span></p>
 </section>
 <section id="messages">
-<h3>2.2.2 Messages<a class="headerlink" href="#messages" title="Permalink to this heading">#</a></h3>
+<h3>2.2.2 Messages<a class="headerlink" href="#messages" title="Permalink to this heading">¶</a></h3>
 <p><span id="index-messages"></span></p>
 <p>A message in Objective-C is the mechanism by which you pass instructions to objects. You may tell the object to do something for you, tell it to change its internal state, or ask it for information.</p>
 <p>A message usually invokes a method, causing the receiving object to respond in some way. Objects and data are manipulated by sending messages to them. Like C-functions they have return types, but function specific to the object.</p>
@@ -302,19 +304,19 @@ else
 <p><span id="Polymorphism"></span></p>
 </section>
 <section id="polymorphism">
-<h3>2.2.3 Polymorphism<a class="headerlink" href="#polymorphism" title="Permalink to this heading">#</a></h3>
+<h3>2.2.3 Polymorphism<a class="headerlink" href="#polymorphism" title="Permalink to this heading">¶</a></h3>
 <p><span id="index-polymorphism"></span></p>
 <p>Polymorphism refers to the fact that two different objects may respond differently to the same message. For example when client objects receive an alike message from a server object, they may respond differently. Using Dynamic Binding, the run-time system determines which code to execute according to the object type.</p>
 <p><span id="Classes-1"></span></p>
 </section>
 </section>
 <section id="classes">
-<h2>2.3 Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h2>
+<h2>2.3 Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
 <p><span id="index-classes"></span></p>
 <p>A <strong>class</strong> in Objective-C is a <em>type of object</em>, much like a structure definition in C except that in addition to variables, a class has code – method implementations – associated with it. When you create an <em>instance</em> of a class, also known as an <em>object</em>, memory for each of its variables is allocated, including a pointer to the class definition itself, which tells the Objective-C runtime where to find the method code, among other things. Whenever an object is sent a message, the runtime finds this code and executes it, using the variable values that are set for this object.</p>
 <p><span id="Inheritance"></span></p>
 <section id="inheritance">
-<h3>2.3.1 Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this heading">#</a></h3>
+<h3>2.3.1 Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this heading">¶</a></h3>
 <p><span id="index-inheritance"></span></p>
 <p>Most of the programmer’s time is spent defining classes. Inheritance helps reduce coding time by providing a convenient way of reusing code. For example, the <code class="docutils literal notranslate"><span class="pre">NSButton</span></code> class defines data (or instance variables) and methods to create button objects of a certain type, so a subclass of <code class="docutils literal notranslate"><span class="pre">NSButton</span></code> could be produced to create buttons of another type - which may perhaps have a different border colour. Equally <code class="docutils literal notranslate"><span class="pre">NSTextField</span></code> can be used to define a subclass that perhaps draws a different border, by reusing definitions and data in the superclass.</p>
 <p>Inheritance places all classes in a logical hierarchy or tree structure that may have the <code class="docutils literal notranslate"><span class="pre">NSObject</span></code> class at its root. (The root object may be changed by the developer; in GNUstep it is <code class="docutils literal notranslate"><span class="pre">NSObject</span></code>, but in “plain” Objective-C it is a class called “<code class="docutils literal notranslate"><span class="pre">Object</span></code>” supplied with the runtime.) All classes may have subclasses, and all except the root class do have superclasses. When a class object creates a new instance, the new object holds the data for its class, superclass, and superclasses extending to the root class (typically <code class="docutils literal notranslate"><span class="pre">NSObject</span></code>). Additional data may be added to classes so as to provide specific functions and application logic.</p>
@@ -328,19 +330,19 @@ else
 <p><span id="Inheritance-of-Methods"></span></p>
 </section>
 <section id="inheritance-of-methods">
-<h3>2.3.2 Inheritance of Methods<a class="headerlink" href="#inheritance-of-methods" title="Permalink to this heading">#</a></h3>
+<h3>2.3.2 Inheritance of Methods<a class="headerlink" href="#inheritance-of-methods" title="Permalink to this heading">¶</a></h3>
 <p><span id="index-inheriting-methods"></span></p>
 <p>Each new class inherits methods and instance variables from another class. This results in a class hierarchy with the root class at the core, and every class (except the root) has a superclass as its parent, and all classes may have numerous subclasses as their children. Each class therefore is a refinement of its superclass(es).</p>
 <p><span id="Overriding-Methods"></span></p>
 </section>
 <section id="overriding-methods">
-<h3>2.3.3 Overriding Methods<a class="headerlink" href="#overriding-methods" title="Permalink to this heading">#</a></h3>
+<h3>2.3.3 Overriding Methods<a class="headerlink" href="#overriding-methods" title="Permalink to this heading">¶</a></h3>
 <p><span id="index-overriding-methods"></span></p>
 <p>Objects may access methods defined for their class, superclass, superclass’ superclass, extending to the root class. Classes may be defined with methods that overwrite their namesakes in ancestor classes. These new methods are then inherited by subclasses, but other methods in the new class can locate the overridden methods. Additionally redefined methods may include overridden methods.</p>
 <p><span id="Abstract-Classes"></span></p>
 </section>
 <section id="abstract-classes">
-<h3>2.3.4 Abstract Classes<a class="headerlink" href="#abstract-classes" title="Permalink to this heading">#</a></h3>
+<h3>2.3.4 Abstract Classes<a class="headerlink" href="#abstract-classes" title="Permalink to this heading">¶</a></h3>
 <p><span id="index-abstract-class"></span> <span id="index-class_002c-abstract"></span></p>
 <p>Abstract classes or abstract superclasses such as <code class="docutils literal notranslate"><span class="pre">NSObject</span></code> define methods and instance variables used by multiple subclasses. Their purpose is to reduce the development effort required to create subclasses and application structures. When we get technical, we make a distinction between a pure abstract class whose methods are defined but instance variables are not, and a semi-abstract class where instance variables are defined).</p>
 <p>An abstract class is not expected to actually produce functional instances since crucial parts of the code are expected to be provided by subclasses. In practice, abstract classes may either stub out key methods with no-op implementations, or leave them unimplemented entirely. In the latter case, the compiler will produce a warning (but not an error).</p>
@@ -348,7 +350,7 @@ else
 <p><span id="Class-Clusters"></span></p>
 </section>
 <section id="class-clusters">
-<h3>2.3.5 Class Clusters<a class="headerlink" href="#class-clusters" title="Permalink to this heading">#</a></h3>
+<h3>2.3.5 Class Clusters<a class="headerlink" href="#class-clusters" title="Permalink to this heading">¶</a></h3>
 <p><span id="index-class-cluster"></span> <span id="index-cluster_002c-classes"></span></p>
 <p>A class cluster is an abstract base class, and a group of private, concrete subclasses. It is used to hide implementation details from the programmer (who is only allowed to use the interface provided by the abstract class), so that the actual design can be modified (probably optimised) at a later date, without breaking any code that uses the cluster.</p>
 <p>Consider a scenario where it is necessary to create a class hierarchy to define objects holding different types including <strong>chars</strong>, <strong>ints</strong>, <strong>shorts</strong>, <strong>longs</strong>, <strong>floats</strong> and <strong>doubles</strong>. Of course, different types could be defined in the same class since it is possible to <strong>cast</strong> or <strong>change</strong> them from one to the next. Their allocated storage differs, however, so it would be inefficient to bundle them in the same class and to convert them in this way.</p>
@@ -358,7 +360,7 @@ else
 </section>
 </section>
 <section id="nsobject-the-root-class">
-<h2>2.4 NSObject: The Root Class<a class="headerlink" href="#nsobject-the-root-class" title="Permalink to this heading">#</a></h2>
+<h2>2.4 NSObject: The Root Class<a class="headerlink" href="#nsobject-the-root-class" title="Permalink to this heading">¶</a></h2>
 <p><span id="index-NSObject"></span> <span id="index-root-class"></span> <span id="index-class_002c-root"></span></p>
 <p>In GNUstep, <code class="docutils literal notranslate"><span class="pre">NSObject</span></code> is a root class that provides a base implementation for all objects, their interactions, and their integration in the run-time system. <code class="docutils literal notranslate"><span class="pre">NSObject</span></code> defines the <code class="docutils literal notranslate"><span class="pre">isa</span></code> instance variable that connects every object with its class.</p>
 <p>In other Objective-C environments besides GNUstep, <code class="docutils literal notranslate"><span class="pre">NSObject</span></code> will be replaced by a different class. In many cases this will be a default class provided with the Objective-C runtime. In the GNU runtime for example, the base class is called <code class="docutils literal notranslate"><span class="pre">Object</span></code>. Usually base classes define a similar set of methods to what is described here for <code class="docutils literal notranslate"><span class="pre">NSObject</span></code>, however there are variations.</p>
@@ -380,13 +382,13 @@ else
 </ul>
 <p><span id="The-NSObject-Protocol"></span></p>
 <section id="the-nsobject-protocol">
-<h3>2.4.1 The NSObject Protocol<a class="headerlink" href="#the-nsobject-protocol" title="Permalink to this heading">#</a></h3>
+<h3>2.4.1 The NSObject Protocol<a class="headerlink" href="#the-nsobject-protocol" title="Permalink to this heading">¶</a></h3>
 <p>In fact, the <code class="docutils literal notranslate"><span class="pre">NSObject</span></code> class is a bit more complicated than just described. In reality, its method declarations are split into two components: essential and ancillary. The essential methods are those that are needed by <em>any</em> root class in the GNUstep/Objective-C environment. They are declared in an “<code class="docutils literal notranslate"><span class="pre">NSObject</span></code> protocol” which should be implemented by any other root class you define (see <a class="reference internal" href="#Classes.html"><span class="xref myst">Protocols</span></a>). The ancillary methods are those specific to the <code class="docutils literal notranslate"><span class="pre">NSObject</span></code> class itself but need not be implemented by any other root class. It is not important to know which methods are of which type unless you actually intend to write an alternative root class, something that is rarely done.</p>
 <p><span id="Static-Typing"></span></p>
 </section>
 </section>
 <section id="static-typing">
-<h2>2.5 Static Typing<a class="headerlink" href="#static-typing" title="Permalink to this heading">#</a></h2>
+<h2>2.5 Static Typing<a class="headerlink" href="#static-typing" title="Permalink to this heading">¶</a></h2>
 <p><span id="index-static-typing"></span></p>
 <p>Recall that the <code class="docutils literal notranslate"><span class="pre">id</span></code> type may be used to refer to any class of object. While this provides for great runtime flexibility (so that, for example, a generic <code class="docutils literal notranslate"><span class="pre">List</span></code> class may contain objcts of any instance), it prevents the compiler from checking whether objects implement the messages you send them. To allow type checking to take place, Objective-C therefore also allows you to use class names as variable types in code. In the following example, type checking verifies that the <code class="docutils literal notranslate"><span class="pre">myString</span></code> object is an appropriate type.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span> // compiler verifies, if anObject&#39;s type is known, that it is an NSString:
@@ -398,7 +400,7 @@ int len = [myString length];
 <p>Note that objects are declared as pointers, unlike when <code class="docutils literal notranslate"><span class="pre">id</span></code> is used. This is because the pointer operator is implicit for <code class="docutils literal notranslate"><span class="pre">id</span></code>. Also, when the compiler performs type checking, a subclass is always permissible where any ancestor class is expected, but not vice-versa.</p>
 <p><span id="Type-Introspection"></span></p>
 <section id="type-introspection">
-<h3>2.5.1 Type Introspection<a class="headerlink" href="#type-introspection" title="Permalink to this heading">#</a></h3>
+<h3>2.5.1 Type Introspection<a class="headerlink" href="#type-introspection" title="Permalink to this heading">¶</a></h3>
 <p>Static typing is not always appropriate. For example, you may wish to store objects of multiple types within a list or other container structure. In these situations, you can still perform type-checking manually if you need to send an untyped object a particular message. The <code class="docutils literal notranslate"><span class="pre">isMemberOfClass:</span></code> method defined in the <code class="docutils literal notranslate"><span class="pre">NSObject</span></code> class verifies that the receiver is of a specific class:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if ([namedObject isMemberOfClass: specificClass] == YES)
   {
@@ -417,7 +419,7 @@ int len = [myString length];
 <p><span id="Referring-to-Instance-Variables"></span></p>
 </section>
 <section id="referring-to-instance-variables">
-<h3>2.5.2 Referring to Instance Variables<a class="headerlink" href="#referring-to-instance-variables" title="Permalink to this heading">#</a></h3>
+<h3>2.5.2 Referring to Instance Variables<a class="headerlink" href="#referring-to-instance-variables" title="Permalink to this heading">¶</a></h3>
 <p><span id="index-instance-variables_002c-referring-to"></span></p>
 <p>As you will see later, classes may define some or all of their instance variables to be <em>public</em> if they wish. This means that any other object or code block can access them using the standard “<code class="docutils literal notranslate"><span class="pre">-&gt;</span></code>” structure access operator from C. For this to work, the object must be statically typed (not referred to by an <code class="docutils literal notranslate"><span class="pre">id</span></code> variable).</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Bar *bar = [foo getBar];
@@ -441,7 +443,7 @@ int len = [myString length];
 </section>
 </section>
 <section id="working-with-class-objects">
-<h2>2.6 Working with Class Objects<a class="headerlink" href="#working-with-class-objects" title="Permalink to this heading">#</a></h2>
+<h2>2.6 Working with Class Objects<a class="headerlink" href="#working-with-class-objects" title="Permalink to this heading">¶</a></h2>
 <p>Classes themselves are maintained internally as objects in their own right in Objective-C, however they do not possess the instance variables defined by the classes they represent, and they cannot be created or destroyed by user code. They do respond to class methods, as in the following:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>id result = [SomeClassName doSomething];
 </pre></div>
@@ -459,7 +461,7 @@ id stringClass3 = [NSString class];
 <p>This facility allows developers to access the benefits of versioning for classes if they so choose.</p>
 <p><span id="Locating-Classes-Dynamically"></span></p>
 <section id="locating-classes-dynamically">
-<h3>2.6.1 Locating Classes Dynamically<a class="headerlink" href="#locating-classes-dynamically" title="Permalink to this heading">#</a></h3>
+<h3>2.6.1 Locating Classes Dynamically<a class="headerlink" href="#locating-classes-dynamically" title="Permalink to this heading">¶</a></h3>
 <p>Class names are about the only names with global visibility in Objective-C. If a class name is unknown at compilation but is available as a string at run time, the GNUstep library <code class="docutils literal notranslate"><span class="pre">NSClassFromString</span></code> function may be used to return the class object:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if ([anObject isKindOf: NSClassFromString(&quot;SomeClassName&quot;)] == YES)
   {
@@ -472,7 +474,7 @@ id stringClass3 = [NSString class];
 </section>
 </section>
 <section id="naming-constraints-and-conventions">
-<h2>2.7 Naming Constraints and Conventions<a class="headerlink" href="#naming-constraints-and-conventions" title="Permalink to this heading">#</a></h2>
+<h2>2.7 Naming Constraints and Conventions<a class="headerlink" href="#naming-constraints-and-conventions" title="Permalink to this heading">¶</a></h2>
 <p><span id="index-naming-constraints"></span> <span id="index-naming-conventions"></span></p>
 <p>The following lists the full uniqueness constraints on names in Objective-C.</p>
 <ul class="simple">
@@ -496,13 +498,13 @@ id stringClass3 = [NSString class];
 <p><span id="Strings-in-GNUstep"></span></p>
 </section>
 <section id="strings-in-gnustep">
-<h2>2.8 Strings in GNUstep<a class="headerlink" href="#strings-in-gnustep" title="Permalink to this heading">#</a></h2>
+<h2>2.8 Strings in GNUstep<a class="headerlink" href="#strings-in-gnustep" title="Permalink to this heading">¶</a></h2>
 <p>Strings in GNUstep can be handled in one of two ways. The first way is the C approach of using an array of <code class="docutils literal notranslate"><span class="pre">char</span></code>. In this case you may use the “<code class="docutils literal notranslate"><span class="pre">STR</span></code>” type defined in Objective-C in place of <code class="docutils literal notranslate"><span class="pre">char[]</span></code>.</p>
 <p>The second approach is to rely on the <code class="docutils literal notranslate"><span class="pre">NSString</span></code> class and associated subclasses in the GNUstep Base library, and compiler support for them. Using this approach allows use of the methods in the <a class="reference internal" href="#../Reference/NSString.html"><span class="xref myst">NSString API</span></a>. In addition, the <code class="docutils literal notranslate"><span class="pre">NSString</span></code> class provides the means to initialize strings using printf-like formats.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">NSString</span></code> class defines objects holding raw <strong>Unicode</strong> character streams or <strong>strings</strong>. Unicode is a 16-bit worldwide standard used to define character sets for all spoken languages. In GNUstep parlance the Unicode character is of type <strong>unichar</strong>.</p>
 <p><span id="Creating-NSString-Static-Instances"></span></p>
 <section id="creating-nsstring-static-instances">
-<h3>2.8.1 Creating NSString Static Instances<a class="headerlink" href="#creating-nsstring-static-instances" title="Permalink to this heading">#</a></h3>
+<h3>2.8.1 Creating NSString Static Instances<a class="headerlink" href="#creating-nsstring-static-instances" title="Permalink to this heading">¶</a></h3>
 <p>A <strong>static</strong> instance is allocated at compile time. The creation of a static instance of <code class="docutils literal notranslate"><span class="pre">NSString</span></code> is achieved using the <code class="docutils literal notranslate"><span class="pre">&#64;&quot;...&quot;</span></code> construct and a pointer:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>NSString *w = @&quot;Brainstorm&quot;;
 </pre></div>
@@ -511,7 +513,7 @@ id stringClass3 = [NSString class];
 <p><span id="NSString-_002bstringWithFormat_003a"></span></p>
 </section>
 <section id="nsstring-stringwithformat">
-<h3>2.8.2 NSString +stringWithFormat:<a class="headerlink" href="#nsstring-stringwithformat" title="Permalink to this heading">#</a></h3>
+<h3>2.8.2 NSString +stringWithFormat:<a class="headerlink" href="#nsstring-stringwithformat" title="Permalink to this heading">¶</a></h3>
 <p>The class method <code class="docutils literal notranslate"><span class="pre">stringWithFormat:</span></code> may also be used to create instances of <code class="docutils literal notranslate"><span class="pre">NSString</span></code>, and broadly echoes the <code class="docutils literal notranslate"><span class="pre">printf()</span></code> function in the C programming language. <code class="docutils literal notranslate"><span class="pre">stringWithFormat:</span></code> accepts a list of arguments whose processed result is placed in an <code class="docutils literal notranslate"><span class="pre">NSString</span></code> that becomes a return value as illustrated below:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int        qos = 5;
 NSString    *gprsChannel;
@@ -538,7 +540,7 @@ NSLog (@&quot;The method returned: %@&quot;, obj);
 <p><span id="C-String-Conversion"></span></p>
 </section>
 <section id="c-string-conversion">
-<h3>2.8.3 C String Conversion<a class="headerlink" href="#c-string-conversion" title="Permalink to this heading">#</a></h3>
+<h3>2.8.3 C String Conversion<a class="headerlink" href="#c-string-conversion" title="Permalink to this heading">¶</a></h3>
 <p>When a program needs to call a C library function it is useful to convert between <code class="docutils literal notranslate"><span class="pre">NSString</span></code>s and standard ASCII C strings (not fixed at compile time). To create an <code class="docutils literal notranslate"><span class="pre">NSString</span></code> using the contents of the returned C string (from the above example), use the <code class="docutils literal notranslate"><span class="pre">NSString</span></code> class method <code class="docutils literal notranslate"><span class="pre">stringWithCString:</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>char *function (void);
 
@@ -560,7 +562,7 @@ result = [string cString];
 <p><span id="NSMutableString"></span></p>
 </section>
 <section id="nsmutablestring">
-<h3>2.8.4 NSMutableString<a class="headerlink" href="#nsmutablestring" title="Permalink to this heading">#</a></h3>
+<h3>2.8.4 NSMutableString<a class="headerlink" href="#nsmutablestring" title="Permalink to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">NSString</span></code>s are immutable objects; meaning that once they are created, they cannot be modified. This results in optimised <code class="docutils literal notranslate"><span class="pre">NSString</span></code> code. To modify a string, use the subclass of <code class="docutils literal notranslate"><span class="pre">NSString</span></code>, called <code class="docutils literal notranslate"><span class="pre">NSMutableString</span></code>. Use a <code class="docutils literal notranslate"><span class="pre">NSMutableString</span></code> wherever a <code class="docutils literal notranslate"><span class="pre">NSString</span></code> could be used.</p>
 <p>An <code class="docutils literal notranslate"><span class="pre">NSMutableString</span></code> responds to methods that modify the string directly - which is not possible with a generic <code class="docutils literal notranslate"><span class="pre">NSString</span></code>. To create a <code class="docutils literal notranslate"><span class="pre">NSMutableString</span></code>use <code class="docutils literal notranslate"><span class="pre">stringWithFormat:</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>NSString *name = @&quot;Brainstorm&quot;;
@@ -593,7 +595,7 @@ s = [NSMutableString stringWithFormat: @&quot;%@, %@&quot;, greeting, name];
 <p><span id="Loading-and-Saving-Strings"></span></p>
 </section>
 <section id="loading-and-saving-strings">
-<h3>2.8.5 Loading and Saving Strings<a class="headerlink" href="#loading-and-saving-strings" title="Permalink to this heading">#</a></h3>
+<h3>2.8.5 Loading and Saving Strings<a class="headerlink" href="#loading-and-saving-strings" title="Permalink to this heading">¶</a></h3>
 <p>The the GNUstep Base library has numerous string manipulation features, and among the most notable are those relating to writing/reading strings to/from files. To write the contents of a string to a file, use the <code class="docutils literal notranslate"><span class="pre">writeToFile:atomically:</span></code> method:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#include &lt;Foundation/Foundation.h&gt;
 
@@ -663,7 +665,7 @@ main (void)
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, Swift contributors, LLVM contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -741,7 +743,7 @@ main (void)
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=5b92e3a5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>

@@ -1,3 +1,4 @@
+% SPDX-License-Identifier: CC-BY-SA-3.0 OR GFDL-1.3-or-later
 # Classes
 
 Classes allow the programmer to define types which can be messaged, can create objects, and are polymorphic.

@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="NS_ERROR_ENUM / CF_ERROR_ENUM" href="NS_ERROR_ENUM.html" /><link rel="prev" title="NS_CLOSED_ENUM / CF_CLOSED_ENUM" href="NS_CLOSED_ENUM.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.04.27 -->
         <title>NS_ENUM / CF_ENUM - Objective-C 2.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=437aa6ec" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
@@ -113,6 +113,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -219,15 +221,15 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <blockquote>
 <div><p><strong>Note</strong>: The definitions shown here are not always the actual definitons and therefore might not compile.</p>
 </div></blockquote>
 <section id="ns-enum-cf-enum">
-<h1><code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_ENUM</span></code><a class="headerlink" href="#ns-enum-cf-enum" title="Permalink to this heading">#</a></h1>
+<h1><code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_ENUM</span></code><a class="headerlink" href="#ns-enum-cf-enum" title="Permalink to this heading">¶</a></h1>
 <p>Declares an enum.</p>
 <section id="declaration">
-<h2>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading">#</a></h2>
+<h2>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="cp">#define NS_ENUM(...) CF_ENUM(__VA_ARGS__)</span>
 <span class="cp">#define CF_ENUM(_type) </span><span class="cm">/* ... */</span>
 <span class="cp">#define CF_ENUM(_type, _name) </span><span class="cm">/* ... */</span>
@@ -235,7 +237,7 @@
 </div>
 </section>
 <section id="parameters">
-<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">#</a></h2>
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><p>type name <strong><code class="docutils literal notranslate"><span class="pre">_type</span></code></strong><br />
 The integer type used for the values of the enum.</p>
@@ -246,11 +248,11 @@ The name of the generated typedef.</p>
 </div></blockquote>
 </section>
 <section id="equivalent-attributes">
-<h2>Equivalent attributes<a class="headerlink" href="#equivalent-attributes" title="Permalink to this heading">#</a></h2>
+<h2>Equivalent attributes<a class="headerlink" href="#equivalent-attributes" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://clang.llvm.org/docs/AttributeReference.html#enum-extensibility"><code class="docutils literal notranslate"><span class="pre">__attribute__((enum_extensibility(open)))</span></code></a></p>
 </section>
 <section id="discussion">
-<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h2>
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">CF_ENUM</span></code> and <code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> support the use of one or two arguments. The first argument (<code class="docutils literal notranslate"><span class="pre">_type</span></code>) is always the integer type used for the values of the enum. The second argument (<code class="docutils literal notranslate"><span class="pre">_name</span></code>) is an optional type name for the macro.</p>
 <p>When specifying a type name, you must precede the macro with <code class="docutils literal notranslate"><span class="pre">typedef</span></code>. This will result in a typename being produced with the type <code class="docutils literal notranslate"><span class="pre">_type</span></code> and the name <code class="docutils literal notranslate"><span class="pre">_name</span></code>. For example:</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span><span class="w"> </span><span class="n">NSComparisonResult</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -272,7 +274,7 @@ The name of the generated typedef.</p>
 <p>The macro adds compiler attributes and the underlying integer type to the enum declaration when using a recent version of Clang.</p>
 </section>
 <section id="importing-into-swift">
-<h2>Importing into Swift<a class="headerlink" href="#importing-into-swift" title="Permalink to this heading">#</a></h2>
+<h2>Importing into Swift<a class="headerlink" href="#importing-into-swift" title="Permalink to this heading">¶</a></h2>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> macro for simple groups of constants.</p>
 <p>The example below uses the macro to declare a <code class="docutils literal notranslate"><span class="pre">UITableViewCellStyle</span> </code>enumeration that groups several different view styles for table views:</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span><span class="w"> </span><span class="n">UITableViewCellStyle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -296,7 +298,7 @@ The name of the generated typedef.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">NS_ENUM</span></code> macro is the only enumeration macro that results in an actual enumeration type when imported to Swift. The other enumeration macros generate structures.</p>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://github.com/apple/swift-corelibs-foundation/blob/master/CoreFoundation/Base.subproj/CFAvailability.h"><code class="docutils literal notranslate"><span class="pre">&lt;CoreFoundation/CFAvailability.h&gt;</span></code></a><br />
 <a class="reference external" href="https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX11.3.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSObjCRuntime.h"><code class="docutils literal notranslate"><span class="pre">&lt;Foundation/NSObjCRuntime.h&gt;</span></code></a><br />
 <a class="reference external" href="https://clang.llvm.org/docs/AttributeReference.html#enum-extensibility">Clang documentation for <code class="docutils literal notranslate"><span class="pre">__attribute__(enum_extensibility)</span></code></a></p>
@@ -304,15 +306,12 @@ The name of the generated typedef.</p>
 <p><a class="reference external" href="https://nshipster.com/ns_enum-ns_options/">NSHipster article</a></p>
 </section>
 <section id="documentation-copyright">
-<h2>Documentation copyright<a class="headerlink" href="#documentation-copyright" title="Permalink to this heading">#</a></h2>
+<h2>Documentation copyright<a class="headerlink" href="#documentation-copyright" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><p><strong>Note</strong>: This page uses a modified version of the documentation found in the CoreFoundation header files, which are licensed under Apache License v2.0 with Runtime Library Exception.</p>
 </div></blockquote>
 <blockquote>
-<div><p><strong>Note</strong>: This page also uses a modified version of the documentation found in the Apple Foundation header files, which are proprietary.</p>
-</div></blockquote>
-<blockquote>
-<div><p><strong>Note</strong>: This page also quotes from <a class="reference external" href="https://developer.apple.com/documentation/swift/objective-c_and_c_code_customization/grouping_related_objective-c_constants">“Grouping Related Objective-C Constants”</a>, which is proprietary.</p>
+<div><p><strong>Note</strong>: This page uses part of Clang’s documentation, which is licensed under Apache License v2.0 with LLVM Exceptions.</p>
 </div></blockquote>
 <blockquote>
 <div><p><strong>Note</strong>: This page also quotes from Swift Evolution proposals, which are licensed under Apache License v2.0 with Runtime Library Exception.</p>
@@ -349,7 +348,7 @@ The name of the generated typedef.</p>
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, Swift contributors, LLVM contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -397,7 +396,7 @@ The name of the generated typedef.</p>
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=5b92e3a5"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=36754332"></script>

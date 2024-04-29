@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Traditional Message Forwarding" href="../TraditionalMessageForwarding.html" /><link rel="prev" title="NS_ENUM / CF_ENUM" href="NS_ENUM.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.04.27 -->
         <title>NS_ERROR_ENUM / CF_ERROR_ENUM - Objective-C 2.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=437aa6ec" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
@@ -113,6 +113,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -219,22 +221,22 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <blockquote>
 <div><p><strong>Note</strong>: The definitions shown here are not always the actual definitons and therefore might not compile.</p>
 </div></blockquote>
 <section id="ns-error-enum-cf-error-enum">
-<h1><code class="docutils literal notranslate"><span class="pre">NS_ERROR_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_ERROR_ENUM</span></code><a class="headerlink" href="#ns-error-enum-cf-error-enum" title="Permalink to this heading">#</a></h1>
+<h1><code class="docutils literal notranslate"><span class="pre">NS_ERROR_ENUM</span></code> / <code class="docutils literal notranslate"><span class="pre">CF_ERROR_ENUM</span></code><a class="headerlink" href="#ns-error-enum-cf-error-enum" title="Permalink to this heading">¶</a></h1>
 <p>Declares an error domain.</p>
 <section id="availability-sdks">
-<h2>Availability (SDKs)<a class="headerlink" href="#availability-sdks" title="Permalink to this heading">#</a></h2>
+<h2>Availability (SDKs)<a class="headerlink" href="#availability-sdks" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Mac OS X &gt;= 10.13 High Sierra</p></li>
 <li><p>swift-corelibs-foundation &gt;= 4.1</p></li>
 </ul>
 </section>
 <section id="declaration">
-<h2>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading">#</a></h2>
+<h2>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="cp">#define NS_ERROR_ENUM(...) CF_ENUM(__VA_ARGS__)</span>
 <span class="cp">#define CF_ERROR_ENUM(_domain) </span><span class="cm">/* ... */</span>
 <span class="cp">#define CF_ERROR_ENUM(_domain, _name) </span><span class="cm">/* ... */</span>
@@ -242,7 +244,7 @@
 </div>
 </section>
 <section id="parameters">
-<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">#</a></h2>
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">NSString*</span> </code><strong><code class="docutils literal notranslate"><span class="pre">_domain</span></code></strong><br />
 The name of the error domain.</p>
@@ -253,14 +255,26 @@ The name of the generated typedef.</p>
 </div></blockquote>
 </section>
 <section id="equivalent-attributes">
-<h2>Equivalent attributes<a class="headerlink" href="#equivalent-attributes" title="Permalink to this heading">#</a></h2>
+<h2>Equivalent attributes<a class="headerlink" href="#equivalent-attributes" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="bp">__attribute__</span><span class="p">((</span><span class="n">ns_error_domain</span><span class="p">(</span><span class="n">_domain</span><span class="p">)))</span>
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">_domain</span></code> is one of the paramaters.</p>
 </section>
 <section id="discussion">
-<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h2>
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">¶</a></h2>
+<p>In Cocoa frameworks in Objective-C, one can group related error codes in enums and categorize these enums with error domains.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ns_error_domain</span></code> attribute indicates a global <code class="docutils literal notranslate"><span class="pre">NSString</span></code> or <code class="docutils literal notranslate"><span class="pre">CFString</span></code> constant representing the error domain that an error code belongs to. For pointer uniqueness and code size this is a constant symbol, not a literal.</p>
+<p>The domain and error code need to be used together. The <code class="docutils literal notranslate"><span class="pre">ns_error_domain</span> <span class="pre">attribute</span></code> links error codes to their domain at the source level.</p>
+<p>This metadata is useful for documentation purposes, for static analysis, and for improving interoperability between Objective-C and Swift. It is not used for code generation in Objective-C.</p>
+<p>For example:</p>
+<div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="k">extern</span><span class="w"> </span><span class="bp">NSString</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">MyErrorDomain</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="n">NS_ERROR_ENUM</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="n">MyErrorEnum</span><span class="p">,</span><span class="w"> </span><span class="n">MyErrorDomain</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MyErrFirst</span><span class="p">,</span>
+<span class="w">    </span><span class="n">MyErrSecond</span><span class="p">,</span>
+<span class="p">};</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">CF_ERROR_ENUM</span></code> and <code class="docutils literal notranslate"><span class="pre">NS_ERROR_ENUM</span></code> support the use of one or two arguments. The first argument (<code class="docutils literal notranslate"><span class="pre">_domain</span></code>) is always the domain specifier for the enum. The second argument (<code class="docutils literal notranslate"><span class="pre">_name</span></code>) is an optional type name for the macro.</p>
 <p>When specifying a type name, you must precede the macro with <code class="docutils literal notranslate"><span class="pre">typedef</span></code>. This will result in a typename being produced with the type <code class="docutils literal notranslate"><span class="pre">NSInteger</span></code> or <code class="docutils literal notranslate"><span class="pre">CFIndex</span></code> and the name <code class="docutils literal notranslate"><span class="pre">_name</span></code>. For example:</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">NS_ERROR_ENUM</span><span class="p">(</span><span class="n">MyErrorDomain</span><span class="p">,</span><span class="w"> </span><span class="n">SomeErrorCodes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -282,23 +296,18 @@ The name of the generated typedef.</p>
 <p>The macro adds compiler attributes and the underlying integer type to the enum declaration when using a recent version of Clang.</p>
 </section>
 <section id="importing-into-swift">
-<h2>Importing into Swift<a class="headerlink" href="#importing-into-swift" title="Permalink to this heading">#</a></h2>
+<h2>Importing into Swift<a class="headerlink" href="#importing-into-swift" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://github.com/apple/swift-corelibs-foundation/blob/master/CoreFoundation/Base.subproj/CFAvailability.h"><code class="docutils literal notranslate"><span class="pre">&lt;CoreFoundation/CFAvailability.h&gt;</span></code></a><br />
-<a class="reference external" href="https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX11.3.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSObjCRuntime.h"><code class="docutils literal notranslate"><span class="pre">&lt;Foundation/NSObjCRuntime.h&gt;</span></code></a></p>
+<a class="reference external" href="https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX11.3.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSObjCRuntime.h"><code class="docutils literal notranslate"><span class="pre">&lt;Foundation/NSObjCRuntime.h&gt;</span></code></a><br />
+<a class="reference external" href="https://clang.llvm.org/docs/AttributeReference.html#ns-error-domain"><code class="docutils literal notranslate"><span class="pre">__attribute(ns_error_domain)__</span></code></a></p>
 </section>
 <section id="documentation-copyright">
-<h2>Documentation copyright<a class="headerlink" href="#documentation-copyright" title="Permalink to this heading">#</a></h2>
+<h2>Documentation copyright<a class="headerlink" href="#documentation-copyright" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><p><strong>Note</strong>: This page uses a modified version of the documentation found in the CoreFoundation header files, which are licensed under Apache License v2.0 with Runtime Library Exception.</p>
-</div></blockquote>
-<blockquote>
-<div><p><strong>Note</strong>: This page also uses a modified version of the documentation found in the Apple Foundation header files, which are proprietary.</p>
-</div></blockquote>
-<blockquote>
-<div><p><strong>Note</strong>: This page also quotes from <a class="reference external" href="https://developer.apple.com/documentation/swift/objective-c_and_c_code_customization/grouping_related_objective-c_constants">“Grouping Related Objective-C Constants”</a>, which is proprietary.</p>
 </div></blockquote>
 <blockquote>
 <div><p><strong>Note</strong>: This page also quotes from Swift Evolution proposals, which are licensed under Apache License v2.0 with Runtime Library Exception.</p>
@@ -335,7 +344,7 @@ The name of the generated typedef.</p>
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, Swift contributors, LLVM contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -384,7 +393,7 @@ The name of the generated typedef.</p>
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=5b92e3a5"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=36754332"></script>

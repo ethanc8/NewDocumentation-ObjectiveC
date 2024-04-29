@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Classes" href="Classes.html" /><link rel="prev" title="Objective-C Language Reference" href="index.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.1.2 and Furo 2024.04.27 -->
         <title>Basic Types - Objective-C 2.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=437aa6ec" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
@@ -113,6 +113,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -219,16 +221,16 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <section id="basic-types">
-<h1>Basic Types<a class="headerlink" href="#basic-types" title="Permalink to this heading">#</a></h1>
+<h1>Basic Types<a class="headerlink" href="#basic-types" title="Permalink to this heading">¶</a></h1>
 <section id="non-arithmetic-types">
-<h2>Non-arithmetic types<a class="headerlink" href="#non-arithmetic-types" title="Permalink to this heading">#</a></h2>
+<h2>Non-arithmetic types<a class="headerlink" href="#non-arithmetic-types" title="Permalink to this heading">¶</a></h2>
 <section id="id-and-nil">
-<h3><code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">nil</span></code><a class="headerlink" href="#id-and-nil" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">nil</span></code><a class="headerlink" href="#id-and-nil" title="Permalink to this heading">¶</a></h3>
 <p>A pointer to an instance of a class.</p>
 <section id="declaration">
-<h4>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading">#</a></h4>
+<h4>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading">¶</a></h4>
 <p>Apple and GNUstep libobjc2:</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">objc_object</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">Class</span><span class="w"> </span><span class="n">isa</span><span class="p">;</span><span class="w"> </span><span class="c1">// deprecated</span>
@@ -245,7 +247,7 @@
 </div>
 </section>
 <section id="usage">
-<h4>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">#</a></h4>
+<h4>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h4>
 <p>All objects are passed and returned by pointer. This means you can do:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span> <span class="n">myObject</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSObject</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
 </pre></div>
@@ -259,13 +261,13 @@
 </section>
 </section>
 <section id="integer-types">
-<h2>Integer types<a class="headerlink" href="#integer-types" title="Permalink to this heading">#</a></h2>
+<h2>Integer types<a class="headerlink" href="#integer-types" title="Permalink to this heading">¶</a></h2>
 <p>In addition to the types shown here, C has <a class="reference external" href="https://en.cppreference.com/w/c/types/integer">C fixed-width integer types</a> and <a class="reference external" href="https://en.cppreference.com/w/c/language/arithmetic_types">C variable-width integer types</a>.</p>
 <section id="bool-yes-and-no">
-<h3><code class="docutils literal notranslate"><span class="pre">BOOL</span></code>: <code class="docutils literal notranslate"><span class="pre">YES</span></code> and <code class="docutils literal notranslate"><span class="pre">NO</span></code><a class="headerlink" href="#bool-yes-and-no" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">BOOL</span></code>: <code class="docutils literal notranslate"><span class="pre">YES</span></code> and <code class="docutils literal notranslate"><span class="pre">NO</span></code><a class="headerlink" href="#bool-yes-and-no" title="Permalink to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">BOOL</span></code> is a Boolean type.</p>
 <section id="id1">
-<h4>Declaration<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<h4>Declaration<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="o">/*</span> <span class="n">implementation</span><span class="o">-</span><span class="n">defined</span> <span class="o">*/</span> <span class="n">BOOL</span><span class="p">;</span>
 <span class="c1">#define YES ((BOOL) 1)</span>
 <span class="c1">#define NO ((BOOL) 0)</span>
@@ -273,11 +275,11 @@
 </div>
 </section>
 <section id="id2">
-<h4>Usage<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<h4>Usage<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">BOOL</span></code> is an integer type, capable of holding at least the values <code class="docutils literal notranslate"><span class="pre">YES</span></code> (<code class="docutils literal notranslate"><span class="pre">1</span></code>) and <code class="docutils literal notranslate"><span class="pre">NO</span></code> (<code class="docutils literal notranslate"><span class="pre">0</span></code>).</p>
 </section>
 <section id="implementation-details">
-<h4>Implementation details<a class="headerlink" href="#implementation-details" title="Permalink to this heading">#</a></h4>
+<h4>Implementation details<a class="headerlink" href="#implementation-details" title="Permalink to this heading">¶</a></h4>
 <p>With the Apple runtime and <code class="docutils literal notranslate"><span class="pre">__OBJC_BOOL_IS_BOOL</span></code> defined to <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">BOOL</span></code> is a C99 <code class="docutils literal notranslate"><span class="pre">_Bool</span></code>.</p>
 <p>On 64-bit iOS, <code class="docutils literal notranslate"><span class="pre">BOOL</span></code> is a C99 <code class="docutils literal notranslate"><span class="pre">_Bool</span></code>.</p>
 <p>With the Apple runtime and <code class="docutils literal notranslate"><span class="pre">__OBJC_BOOL_IS_BOOL</span></code> defined to <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">BOOL</span></code> is a <code class="docutils literal notranslate"><span class="pre">signed</span> <span class="pre">char</span></code>.</p>
@@ -290,31 +292,31 @@
 </section>
 </section>
 <section id="nsinteger">
-<h3><code class="docutils literal notranslate"><span class="pre">NSInteger</span></code><a class="headerlink" href="#nsinteger" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">NSInteger</span></code><a class="headerlink" href="#nsinteger" title="Permalink to this heading">¶</a></h3>
 </section>
 </section>
 <section id="floating-point-types">
-<h2>Floating-point types<a class="headerlink" href="#floating-point-types" title="Permalink to this heading">#</a></h2>
+<h2>Floating-point types<a class="headerlink" href="#floating-point-types" title="Permalink to this heading">¶</a></h2>
 <section id="cgfloat">
-<h3><code class="docutils literal notranslate"><span class="pre">CGFloat</span></code><a class="headerlink" href="#cgfloat" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">CGFloat</span></code><a class="headerlink" href="#cgfloat" title="Permalink to this heading">¶</a></h3>
 </section>
 </section>
 <section id="constants">
-<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this heading">#</a></h2>
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this heading">¶</a></h2>
 <section id="yes">
-<h3><code class="docutils literal notranslate"><span class="pre">YES</span></code><a class="headerlink" href="#yes" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">YES</span></code><a class="headerlink" href="#yes" title="Permalink to this heading">¶</a></h3>
 </section>
 <section id="no">
-<h3><code class="docutils literal notranslate"><span class="pre">NO</span></code><a class="headerlink" href="#no" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">NO</span></code><a class="headerlink" href="#no" title="Permalink to this heading">¶</a></h3>
 </section>
 <section id="null">
-<h3><code class="docutils literal notranslate"><span class="pre">NULL</span></code><a class="headerlink" href="#null" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">NULL</span></code><a class="headerlink" href="#null" title="Permalink to this heading">¶</a></h3>
 </section>
 <section id="nil">
-<h3><code class="docutils literal notranslate"><span class="pre">nil</span></code><a class="headerlink" href="#nil" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">nil</span></code><a class="headerlink" href="#nil" title="Permalink to this heading">¶</a></h3>
 </section>
 <section id="id3">
-<h3><code class="docutils literal notranslate"><span class="pre">Nil</span></code><a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">Nil</span></code><a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
 </section>
 </section>
 </section>
@@ -348,7 +350,7 @@
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT
+                Copyright &#169; 2022, Ethan C, GNUstep contributors, Swift contributors, LLVM contributors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -419,7 +421,7 @@
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=5b92e3a5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
