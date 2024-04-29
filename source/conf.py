@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Objective-C'
-copyright = '2022, Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT'
-author = 'Ethan C, GNUstep contributors, (for encumbered documentation) Apple, NeXT'
+copyright = '2022, Ethan C, GNUstep contributors, Swift contributors, LLVM contributors'
+author = 'Ethan C, GNUstep contributors, Swift contributors, LLVM contributors'
 version = '2.4'
 release = '2.4'
 
